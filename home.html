@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>Webshop Engine</title>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	</head>
+	<body ng-app="wEngineApp" ng-controller="wEngineCtrl">
+		<h1>Webshop Engine</h1>
+		<p>Choose one from these great webshops!</p>
+		<ul>
+			<li ng-repeat="w in webshops"><a href="{{w.url}}">{{w.name}}</a></li>
+		</ul>
+		<script src="homeController.js"></script>
+	</body>
+</html>

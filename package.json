@@ -1,0 +1,8 @@
+{
+  "name": "webshopengine",
+  "version": "1.0.0",
+  "main": "server.js",
+  "dependencies": {
+    "mongodb": "^2.2.10"
+  }
+}
