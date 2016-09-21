@@ -1,0 +1,7 @@
+﻿<div ng-controller="WebshopEngineCtrl">
+	<h1>Webshop Engine</h1>
+	<p>Choose one from these great webshops!</p>
+	<ul>
+		<li ng-repeat="w in webshops"><a href="#/webshops/{{w.webshopID}}">{{w.name}}</a></li>
+	</ul>
+</div>

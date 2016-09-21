@@ -12,8 +12,11 @@ MongoClient.connect(url, function(err, db) {
 	console.log("Connected correctly to server.");
 	database = db;
 	
-	/*insertProducts(db, function() {
-		db.close();
+	// called only once when inserting things
+	/*insertWebshops(db, function() {
+		insertProducts(db, function() {
+			db.close();
+		});
 	});*/
 });
 
@@ -24,14 +27,14 @@ app.use(bodyParser.json());
 var insertWebshops = function(db, callback) {
 	var collection = db.collection('webshops');
 	collection.insertMany([
-		{name:'Webshop1', url:'#', webshopID:1},
-		{name:'Webshop2', url:'#', webshopID:2},
-		{name:'Webshop3', url:'#', webshopID:3}
+		{name:'Webshop1', webshopID:1},
+		{name:'Webshop2', webshopID:2},
+		{name:'Webshop3', webshopID:3}
 	], function(err, result) {
 		assert.equal(err, null);
 		assert.equal(3, result.result.n);
 		assert.equal(3, result.ops.length);
-		console.log("Inserted 3 documents into the collection");
+		console.log("Inserted 3 documents into the webshops collection");
 		callback(result);
 	});
 }
