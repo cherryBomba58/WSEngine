@@ -29,12 +29,13 @@ var insertWebshops = function(db, callback) {
 	collection.insertMany([
 		{name:'Webshop1', webshopID:1},
 		{name:'Webshop2', webshopID:2},
-		{name:'Webshop3', webshopID:3}
+		{name:'Webshop3', webshopID:3},
+		{name:'Webshop4', webshopID:'4'}
 	], function(err, result) {
 		assert.equal(err, null);
-		assert.equal(3, result.result.n);
-		assert.equal(3, result.ops.length);
-		console.log("Inserted 3 documents into the webshops collection");
+		assert.equal(4, result.result.n);
+		assert.equal(4, result.ops.length);
+		console.log("Inserted 4 documents into the webshops collection");
 		callback(result);
 	});
 }
@@ -44,12 +45,14 @@ var insertProducts = function(db, callback) {
 	collection.insertMany([
 		{name:'Cuki kiscica', quantityCenter: 3, price: 500, productID: 1, bday: '2016.07.01.'},
 		{name:'Toyota Yaris', quantityCenter: 3, price: 5000000, productID: 2, consume: 10, mark: 'Toyota', type: 'Yaris'},
-		{name:'ASUS X555L', quantityCenter: 3, price: 170000, productID: 3, processorGHz: 2.2, processorCoresNum: 2}
+		{name:'ASUS X555L', quantityCenter: 3, price: 170000, productID: 3, processorGHz: 2.2, processorCoresNum: 2},
+		{name:'Volvo 740', quantityCenter: 5, price: 10000000, productID: 4, consume: '20', mark: 'Volvo', type: '740'},
+		{juju:'kulipintyo', farsang:'janoska', eckecpec:'jujjjj!', marslako:4, venuszlako:'5', ordog:666}
 	], function(err, result) {
 		assert.equal(err, null);
-		assert.equal(3, result.result.n);
-		assert.equal(3, result.ops.length);
-		console.log("Inserted 3 documents into the products collection");
+		assert.equal(5, result.result.n);
+		assert.equal(5, result.ops.length);
+		console.log("Inserted 5 documents into the products collection");
 		callback(result);
 	});
 }

@@ -5,8 +5,11 @@
 				templateUrl: 'home.html'
 			})
 			.when('/webshops/:webshopID', {
-				templateUrl: 'webshop.html',
+				templateUrl: 'webshop/index.html',
 				controller: 'WebshopCtrl'
+			})
+			.when('/admin', {
+				templateUrl: 'admin/index.html'
 			});
 	})
 	.controller("WebshopEngineCtrl", function($scope, $http) {
