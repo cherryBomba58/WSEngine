@@ -4,7 +4,7 @@
 		<h1>Webshop Engine</h1>
 		<p>Choose one from these great webshops!</p>
 		<ul>
-			<li ng-repeat="w in webshops"><a href="#/webshops/{{w.webshopID}}">{{w.name}}</a></li>
+			<li ng-repeat="w in webshops"><a ui-sref="webshops({webshopID: w.webshopID})">{{w.name}}</a></li>
 		</ul>
 		
 		<p>We have the following products:</p>
@@ -15,7 +15,7 @@
 	
 	<div class="container">
 		<footer>
-			<a href="#/admin">Admin site</a>
+			<a ui-sref="admin">Admin site</a>
 		</footer>
 	</div>
 	

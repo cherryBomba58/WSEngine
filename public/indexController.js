@@ -1,14 +1,20 @@
-﻿angular.module("WebshopEngineApp", ["ngRoute"])
-	.config(function($routeProvider) {
-		$routeProvider
-			.when('/', {
+﻿angular.module("WebshopEngineApp", ["ui.router"])
+	.config(function($stateProvider) {
+		$stateProvider
+			.state({
+				name: 'root',
+				url: '',
 				templateUrl: 'home.html'
 			})
-			.when('/webshops/:webshopID', {
+			.state({
+				name: 'webshops',
+				url: '/webshops/{webshopID}',
 				templateUrl: 'webshop/index.html',
 				controller: 'WebshopCtrl'
 			})
-			.when('/admin', {
+			.state({
+				name: 'admin',
+				url: '/admin',
 				templateUrl: 'admin/index.html'
 			});
 	})
@@ -35,6 +41,6 @@
 			});
 
 	})
-	.controller("WebshopCtrl", function($scope, $routeParams) {
-		$scope.webshopID = $routeParams.webshopID;
+	.controller("WebshopCtrl", function($scope, $stateParams) {
+		$scope.webshopID = $stateParams.webshopID;
 	});
