@@ -13,13 +13,12 @@
 		
 		<!-- Bootstrap Core CSS -->
 	    <link href="webshop/css/bootstrap.min.css" rel="stylesheet">
-	    <link href="admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	    
 	    <!-- MetisMenu CSS -->
     	<link href="admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
     	
     	<!-- Social Buttons CSS -->
-    	<link href="../vendor/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+    	<link href="admin/vendor/bootstrap-social/bootstrap-social.css" rel="stylesheet">
     	
     	<!-- DataTables CSS -->
 	    <link href="admin/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
@@ -46,32 +45,11 @@
 	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    <![endif]-->
 	    
-	    <!-- AngularJS Core JavaScript -->
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-		
-		<!-- UI-Router Core JavaScript -->
-		<script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
-		
-	</head>
-	
-	<body ng-app="WebshopEngineApp">
-	
-		<ui-view></ui-view>
-		
-		<!-- jQuery -->
-	    <script src="webshop/js/jquery.js"></script>
+	    <!-- jQuery -->
 	    <script src="admin/vendor/jquery/jquery.min.js"></script>
 	
 	    <!-- Bootstrap Core JavaScript -->
 	    <script src="webshop/js/bootstrap.min.js"></script>
-	    <script src="admin/vendor/bootstrap/js/bootstrap.min.js"></script>
-	
-	    <!-- Script to Activate the Carousel -->
-	    <script>
-	    $('.carousel').carousel({
-	        interval: 5000 //changes the speed
-	    })
-	    </script>
 	    	
 	    <!-- Metis Menu Plugin JavaScript -->
 	    <script src="admin/vendor/metisMenu/metisMenu.min.js"></script>
@@ -98,8 +76,20 @@
 	    <!-- Custom Theme JavaScript -->
 	    <script src="admin/dist/js/sb-admin-2.js"></script>
 	    
-	    <!-- AngularJS App Controller -->
+	    <!-- AngularJS Core JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		
+		<!-- UI-Router Core JavaScript -->
+		<script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
+		
+		<!-- AngularJS App Controller -->
 		<script src="indexController.js"></script>
+		
+	</head>
+	
+	<body ng-app="WebshopEngineApp">
+	
+		<ui-view></ui-view>
 		
 	</body>
 	
