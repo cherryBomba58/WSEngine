@@ -6,20 +6,38 @@
 		<meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <meta name="description" content="">
-	    <meta name="author" content="">
+	    <meta name="description" content="Webshop Engine which can handle more webshops">
+	    <meta name="author" content="Répássy Adrienn">
 		
 		<title>Webshop Engine</title>
 		
 		<!-- Bootstrap Core CSS -->
 	    <link href="webshop/css/bootstrap.min.css" rel="stylesheet">
+	    <link href="admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	    
+	    <!-- MetisMenu CSS -->
+    	<link href="admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    	
+    	<!-- Social Buttons CSS -->
+    	<link href="../vendor/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+    	
+    	<!-- DataTables CSS -->
+	    <link href="admin/vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 	
+	    <!-- DataTables Responsive CSS -->
+	    <link href="admin/vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
+	    
 	    <!-- Custom CSS -->
 	    <link href="webshop/css/modern-business.css" rel="stylesheet">
 	    <link href="webshop/css/shop-homepage.css" rel="stylesheet">
+	    <link href="admin/dist/css/sb-admin-2.css" rel="stylesheet">
+	    
+	    <!-- Morris Charts CSS -->
+    	<link href="admin/vendor/morrisjs/morris.css" rel="stylesheet">
 	
 	    <!-- Custom Fonts -->
 	    <link href="webshop/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    	<link href="admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	
 	    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -28,7 +46,10 @@
 	        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	    <![endif]-->
 	    
+	    <!-- AngularJS Core JavaScript -->
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		
+		<!-- UI-Router Core JavaScript -->
 		<script src="//unpkg.com/angular-ui-router/release/angular-ui-router.min.js"></script>
 		
 	</head>
@@ -39,9 +60,11 @@
 		
 		<!-- jQuery -->
 	    <script src="webshop/js/jquery.js"></script>
+	    <script src="admin/vendor/jquery/jquery.min.js"></script>
 	
 	    <!-- Bootstrap Core JavaScript -->
 	    <script src="webshop/js/bootstrap.min.js"></script>
+	    <script src="admin/vendor/bootstrap/js/bootstrap.min.js"></script>
 	
 	    <!-- Script to Activate the Carousel -->
 	    <script>
@@ -49,7 +72,33 @@
 	        interval: 5000 //changes the speed
 	    })
 	    </script>
+	    	
+	    <!-- Metis Menu Plugin JavaScript -->
+	    <script src="admin/vendor/metisMenu/metisMenu.min.js"></script>
 	    
+	    <!-- Flot Charts JavaScript -->
+	    <script src="admin/vendor/flot/excanvas.min.js"></script>
+	    <script src="admin/vendor/flot/jquery.flot.js"></script>
+	    <script src="admin/vendor/flot/jquery.flot.pie.js"></script>
+	    <script src="admin/vendor/flot/jquery.flot.resize.js"></script>
+	    <script src="admin/vendor/flot/jquery.flot.time.js"></script>
+	    <script src="admin/vendor/flot-tooltip/jquery.flot.tooltip.min.js"></script>
+	    <script src="admin/data/flot-data.js"></script>
+	    
+	    <!-- Morris Charts JavaScript -->
+	    <script src="admin/vendor/raphael/raphael.min.js"></script>
+	    <script src="admin/vendor/morrisjs/morris.min.js"></script>
+	    <script src="admin/data/morris-data.js"></script>
+	    
+	    <!-- DataTables JavaScript -->
+	    <script src="admin/vendor/datatables/js/jquery.dataTables.min.js"></script>
+	    <script src="admin/vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+	    <script src="admin/vendor/datatables-responsive/dataTables.responsive.js"></script>
+	
+	    <!-- Custom Theme JavaScript -->
+	    <script src="admin/dist/js/sb-admin-2.js"></script>
+	    
+	    <!-- AngularJS App Controller -->
 		<script src="indexController.js"></script>
 		
 	</body>

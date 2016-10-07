@@ -1,5 +1,5 @@
 ﻿angular.module("WebshopEngineApp", ["ui.router"])
-	.config(function($stateProvider, $urlRouterProvider) {
+	.config(function($stateProvider) {
 		$stateProvider
 			.state({
 				name: 'root',
@@ -86,6 +86,71 @@
 				name: 'admin',
 				url: '/admin',
 				templateUrl: 'admin/index.html'
+			})
+			.state({
+				name: 'admin.home',
+				url: '/home',
+				templateUrl: 'admin/pages/home.html'
+			})
+			.state({
+				name: 'admin.blank',
+				url: '/blank',
+				templateUrl: 'admin/pages/blank.html'
+			})
+			.state({
+				name: 'admin.buttons',
+				url: '/buttons',
+				templateUrl: 'admin/pages/buttons.html'
+			})
+			.state({
+				name: 'admin.flot',
+				url: '/flot',
+				templateUrl: 'admin/pages/flot.html'
+			})
+			.state({
+				name: 'admin.forms',
+				url: '/forms',
+				templateUrl: 'admin/pages/forms.html'
+			})
+			.state({
+				name: 'admin.grid',
+				url: '/grid',
+				templateUrl: 'admin/pages/grid.html'
+			})
+			.state({
+				name: 'admin.icons',
+				url: '/icons',
+				templateUrl: 'admin/pages/icons.html'
+			})
+			.state({
+				name: 'admin.morris',
+				url: '/morris',
+				templateUrl: 'admin/pages/morris.html'
+			})
+			.state({
+				name: 'admin.notifications',
+				url: '/notifications',
+				templateUrl: 'admin/pages/notifications.html'
+			})
+			.state({
+				name: 'admin.panelswells',
+				url: '/panelswells',
+				templateUrl: 'admin/pages/panels-wells.html'
+			})
+			.state({
+				name: 'admin.tables',
+				url: '/tables',
+				templateUrl: 'admin/pages/tables.html'
+			})
+			.state({
+				name: 'admin.typography',
+				url: '/typography',
+				templateUrl: 'admin/pages/typography.html'
+			})
+			.state({
+				name: 'login',
+				url: '/login',
+				templateUrl: 'admin/pages/login.html'
 			});
 	})
 	.controller("WebshopEngineCtrl", function($scope, $http) {
