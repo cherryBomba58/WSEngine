@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Admin site</a>
+                <a class="navbar-brand" ui-sref="admin.home">Admin site</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -215,7 +215,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a ui-sref="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -239,91 +239,85 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a ui-sref="admin.home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a ui-sref-active="active" ui-sref="admin.home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-shopping-cart fa-fw"></i> Orders<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a ui-sref="admin.flot">Flot Charts</a>
+                                    <a ui-sref-active="active" ui-sref="admin.tables">Active orders</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="admin.morris">Morris.js Charts</a>
+                                    <a ui-sref-active="active" ui-sref="admin.forms">Orders archive</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a ui-sref="admin.tables"><i class="fa fa-table fa-fw"></i> Tables</a>
-                        </li>
-                        <li>
-                            <a ui-sref="admin.forms"><i class="fa fa-edit fa-fw"></i> Forms</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-bullhorn fa-fw"></i> Offers<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a ui-sref="admin.panelswells">Panels and Wells</a>
+                                    <a ui-sref-active="active" ui-sref="admin.flot">Active offers</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="admin.buttons">Buttons</a>
-                                </li>
-                                <li>
-                                    <a ui-sref="admin.notifications">Notifications</a>
-                                </li>
-                                <li>
-                                    <a ui-sref="admin.typography">Typography</a>
-                                </li>
-                                <li>
-                                    <a ui-sref="admin.icons"> Icons</a>
-                                </li>
-                                <li>
-                                    <a ui-sref="admin.grid">Grid</a>
+                                    <a ui-sref-active="active" ui-sref="admin.morris">New offer</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Webshops<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a ui-sref-active="active" ui-sref="admin.panelswells">Active webshops</a>
                                 </li>
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a ui-sref-active="active" ui-sref="admin.buttons">New webshop</a>
                                 </li>
                                 <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
+                                    <a ui-sref-active="active" ui-sref="admin.blank">Place products</a>
+                                </li>
+                             </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Admins<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a ui-sref-active="active" ui-sref="admin.icons">Webshop admins</a>
+                                </li>
+                                <li>
+                                    <a ui-sref-active="active" ui-sref="admin.grid">New admin</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li class="active">
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+  						<li>
+                            <a href="#"><i class="fa fa-puzzle-piece fa-fw"></i> Products<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a class="active" ui-sref="admin.blank">Blank Page</a>
+                                    <a ui-sref-active="active" ui-sref="admin.notifications">Product types</a>
                                 </li>
                                 <li>
-                                    <a ui-sref="login">Login Page</a>
+                                    <a ui-sref-active="active" ui-sref="admin.typography">New product type</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Account<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a ui-sref-active="active" ui-sref="admin.blank">My data</a>
+                                </li>
+                                <li>
+                                    <a ui-sref-active="active" ui-sref="admin.blank">Modify my data</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+						<li>
+                            <a ui-sref-active="active" ui-sref="login"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
