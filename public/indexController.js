@@ -38,9 +38,9 @@
 				templateUrl: 'webshop/pages/faq.html',
 			})
 			.state({
-				name: 'webshops.fullwidth',
-				url: '/fullwidth',
-				templateUrl: 'webshop/pages/full-width.html',
+				name: 'webshops.myorders',
+				url: '/myorders',
+				templateUrl: 'webshop/pages/myorders.html',
 			})
 			.state({
 				name: 'webshops.login',
@@ -78,9 +78,9 @@
 				templateUrl: 'webshop/pages/regist.html',
 			})
 			.state({
-				name: 'webshops.sidebar',
-				url: '/sidebar',
-				templateUrl: 'webshop/pages/sidebar.html',
+				name: 'webshops.mydata',
+				url: '/mydata',
+				templateUrl: 'webshop/pages/mydata.html',
 			})
 			.state({
 				name: 'admin',
@@ -93,59 +93,69 @@
 				templateUrl: 'admin/pages/home.html'
 			})
 			.state({
-				name: 'admin.blank',
-				url: '/blank',
-				templateUrl: 'admin/pages/blank.html'
+				name: 'admin.orders',
+				url: '/orders',
+				templateUrl: 'admin/pages/orders.html'
 			})
 			.state({
-				name: 'admin.buttons',
-				url: '/buttons',
-				templateUrl: 'admin/pages/buttons.html'
+				name: 'admin.ordersarchive',
+				url: '/orders-archive',
+				templateUrl: 'admin/pages/orders-archive.html'
 			})
 			.state({
-				name: 'admin.flot',
-				url: '/flot',
-				templateUrl: 'admin/pages/flot.html'
+				name: 'admin.offers',
+				url: '/offers',
+				templateUrl: 'admin/pages/offers.html'
 			})
 			.state({
-				name: 'admin.forms',
-				url: '/forms',
-				templateUrl: 'admin/pages/forms.html'
+				name: 'admin.offersnew',
+				url: '/offers-new',
+				templateUrl: 'admin/pages/offers-new.html'
 			})
 			.state({
-				name: 'admin.grid',
-				url: '/grid',
-				templateUrl: 'admin/pages/grid.html'
+				name: 'admin.mywebshops',
+				url: '/my-webshops',
+				templateUrl: 'admin/pages/webshops.html'
 			})
 			.state({
-				name: 'admin.icons',
-				url: '/icons',
-				templateUrl: 'admin/pages/icons.html'
+				name: 'admin.webshopsnew',
+				url: '/webshops-new',
+				templateUrl: 'admin/pages/webshops-new.html'
 			})
 			.state({
-				name: 'admin.morris',
-				url: '/morris',
-				templateUrl: 'admin/pages/morris.html'
+				name: 'admin.placeproducts',
+				url: '/place-products',
+				templateUrl: 'admin/pages/place-products.html'
 			})
 			.state({
-				name: 'admin.notifications',
-				url: '/notifications',
-				templateUrl: 'admin/pages/notifications.html'
+				name: 'admin.wsadmins',
+				url: '/wsadmins',
+				templateUrl: 'admin/pages/wsadmins.html'
 			})
 			.state({
-				name: 'admin.panelswells',
-				url: '/panelswells',
-				templateUrl: 'admin/pages/panels-wells.html'
+				name: 'admin.wsadminsnew',
+				url: '/wsadmins-new',
+				templateUrl: 'admin/pages/wsadmins-new.html'
 			})
 			.state({
-				name: 'admin.tables',
-				url: '/tables',
-				templateUrl: 'admin/pages/tables.html'
+				name: 'admin.products',
+				url: '/products',
+				templateUrl: 'admin/pages/products.html'
 			})
 			.state({
-				name: 'admin.typography',
-				url: '/typography',
-				templateUrl: 'admin/pages/typography.html'
+				name: 'admin.productsnew',
+				url: '/products-new',
+				templateUrl: 'admin/pages/products-new.html'
+			})
+			.state({
+				name: 'admin.mydata',
+				url: '/mydata',
+				templateUrl: 'admin/pages/mydata.html'
+			})
+			.state({
+				name: 'admin.mydatamodify',
+				url: '/mydata-modify',
+				templateUrl: 'admin/pages/mydata-modify.html'
 			})
 			.state({
 				name: 'login',
