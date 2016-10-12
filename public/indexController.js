@@ -85,7 +85,8 @@
 			.state({
 				name: 'admin',
 				url: '/admin',
-				templateUrl: 'admin/index.html'
+				templateUrl: 'admin/index.html',
+				controller: 'AdminCtrl'
 			})
 			.state({
 				name: 'admin.home',
@@ -188,4 +189,17 @@
 	})
 	.controller("WebshopCtrl", function($scope, $stateParams) {
 		$scope.webshopID = $stateParams.webshopID;
+	})
+	.controller("AdminCtrl", function($scope, $http) {
+		$scope.createNewWebshop = function(name, id) {
+			console.log(name, id);
+			$http.post('/api/webshops', {name: name, webshopID: id})
+				.success(function(data) {
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log(data);
+				});
+		}
 	});
+	
