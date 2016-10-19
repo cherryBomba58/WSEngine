@@ -139,6 +139,16 @@
 				templateUrl: 'admin/pages/wsadmins-new.html'
 			})
 			.state({
+				name: 'admin.categories',
+				url: '/categories',
+				templateUrl: 'admin/pages/categories.html'
+			})
+			.state({
+				name: 'admin.categoriesnew',
+				url: '/categories-new',
+				templateUrl: 'admin/pages/categories-new.html'
+			})
+			.state({
 				name: 'admin.products',
 				url: '/products',
 				templateUrl: 'admin/pages/products.html'
