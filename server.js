@@ -1,23 +1,44 @@
-﻿var express = require('express');
+﻿// Requirements
+var express = require('express');
 var app = express();
 var MongoClient = require('mongodb').MongoClient;
+var mysql = require('mysql');
 var assert = require('assert');
 var bodyParser = require('body-parser');
 
+// Connect to MongoDB
 var url = 'mongodb://localhost:27017/project';
 var database = '';
 
 MongoClient.connect(url, function(err, db) {
 	assert.equal(null, err);
-	console.log("Connected correctly to server.");
+	console.log("Connected correctly to MongoDB server.");
 	database = db;
 });
 
+// Connect to MySQL
+var connection = mysql.createConnection({
+	host: 'localhost',
+	user: 'root',
+	password: '',
+	database: 'wsengine'
+});
+
+connection.connect(function(err) {
+	if(err) {
+		console.error('error connecting: ' + err.stack);
+		return;
+	}
+	console.log('Connected correctly to MySQL server.');
+});
+
+// Express settings
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended:'true'}));
 app.use(bodyParser.json());
 
 
+// REST API
 app.get('/api/webshops', function(req, res) {
 	var collection = database.collection('webshops');
 	collection.find({}).toArray(function(err, docs) {
@@ -69,5 +90,7 @@ app.post('/api/products', function(req, res) {
 });
 
 
-app.listen(3000);
-console.log("App listening on port 3000");
+// Listening on port 3000
+app.listen(3000, function() {
+	console.log("App listening on port 3000");
+});
