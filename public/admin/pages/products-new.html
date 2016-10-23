@@ -23,28 +23,23 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <input type="text" class="form-control" placeholder="Enter a description" ng-model="desc">
+                                            <textarea class="form-control" rows="5" placeholder="Enter a description" ng-model="desc"></textarea>
                                         </div>
 										<div class="form-group">
                                             <label>Price</label>
-                                            <input type="text" class="form-control" placeholder="Enter a price" ng-model="price">
+                                            <input type="number" class="form-control" placeholder="Enter a price" ng-model="price">
                                         </div>
                                         <div class="form-group">
                                             <label>Category</label>
-                                            <input type="text" class="form-control" placeholder="Enter a category" ng-model="categ">
+                                            <input type="text" class="form-control" placeholder="Enter a category" ng-model="categ" disabled>
                                             <p class="help-block">TODO: select.</p>
                                         </div>
                                         <div class="form-group">
                                             <label>Image</label>
-                                            <input type="image" class="form-control" placeholder="Enter an image" ng-model="img">
+                                            <input type="file" ng-model="img" disabled>
                                             <p class="help-block">TODO: upload image.</p>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Product ID</label>
-                                            <input type="number" class="form-control" placeholder="Enter a number" ng-model="id">
-                                            <p class="help-block">TODO: remove it.</p>
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Create</button><!--ng-click="createNewWebshop(name, id)"-->
+                                        <button type="submit" class="btn btn-default" ng-click="createNewProduct(name, desc, price)">Create</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->

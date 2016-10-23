@@ -19,15 +19,19 @@
                                     <form role="form">
                                         <div class="form-group">
                                             <label>Webshop</label>
-                                            <input type="text" class="form-control" placeholder="Enter a webshop" ng-model="webshop">
-                                            <p class="help-block">TODO: select (only global admin).</p>
+                                            <select class="form-control" ng-model="webshop">
+                                            	<option value="{{w.webshopID}}" ng-repeat="w in webshops">{{w.name}}</option>
+                                            </select>
+                                            <p class="help-block">Only global admin.</p>
                                         </div>
                                         <div class="form-group">
                                             <label>Product</label>
-                                            <input type="number" class="form-control" placeholder="Enter a number" ng-model="id">
-                                            <p class="help-block">TODO: select (only global admin).</p>
+                                            <select class="form-control" ng-model="product">
+                                            	<option value="{{p.productID}}" ng-repeat="p in products">{{p.name}}</option>
+                                            </select>
+                                            <p class="help-block">Only global admin.</p>
                                         </div>
-                                        <button type="submit" class="btn btn-default">Place</button><!--ng-click="createNewWebshop(name, id)"-->
+                                        <button type="submit" class="btn btn-default" ng-click="placeProductToWebshop(webshop, product)">Place</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
