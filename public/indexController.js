@@ -186,8 +186,18 @@
 				console.log('Error: ' + data);
 			});
 	})
-	.controller("WebshopCtrl", function($scope, $stateParams) {
+	.controller("WebshopCtrl", function($scope, $stateParams, $http) {
 		$scope.webshopID = $stateParams.webshopID;
+		$scope.sells = [];
+		
+		$http.get('/api/sells/' + $scope.webshopID)
+			.success(function(data) {
+				$scope.sells = data;
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
 	})
 	.controller("AdminCtrl", function($scope, $http) {
 		$scope.webshops = [];
@@ -249,6 +259,18 @@
 			console.log(webshop, product);
 			var body = {productID: product, webshopID: webshop, quantity: 0};
 			$http.post('/api/sells', body)
+				.success(function(data) {
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log('Error: ' + data);
+				});
+		}
+		
+		$scope.createNewOffer = function(webshop, product, quan) {
+			console.log(webshop, product, quan);
+			var body = {productID: product, webshopID: webshop, quantity: quan};
+			$http.put('/api/sells', body)
 				.success(function(data) {
 					console.log(data);
 				})

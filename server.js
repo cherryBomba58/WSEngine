@@ -87,7 +87,9 @@ app.post('/api/products', function(req, res) {
 });
 
 app.get('/api/sells', function(req, res) {
-	connection.query('SELECT * FROM sells', function(err, result) {
+	connection.query('SELECT s.*, p.name AS productName, w.name AS webshopName FROM sells s ' + 
+	'INNER JOIN product p ON s.productID = p.productID ' + 
+	'INNER JOIN webshop w ON s.webshopID = w.webshopID', function(err, result) {
 		if(err) res.send(err);
 		console.log('Found the following webshop-product pairs:');
 		console.log(result);
@@ -95,8 +97,27 @@ app.get('/api/sells', function(req, res) {
 	});
 });
 
+app.get('/api/sells/:webshopID', function(req, res) {
+	connection.query('SELECT s.quantity, p.* FROM sells s ' + 
+	'INNER JOIN product p ON s.productID = p.productID ' +
+	'WHERE s.webshopID = ? AND s.quantity > 0', req.params.webshopID, function(err, result) {
+		if(err) res.send(err);
+		console.log('Found the following webshop-product pairs of webshop:');
+		console.log(result);
+		res.json(result);
+	});
+});
+
 app.post('/api/sells', function(req, res) {
 	connection.query('INSERT INTO sells SET ?', req.body, function(err, result) {
+		if(err) res.send(err);
+		console.log(result);
+	});
+});
+
+app.put('/api/sells', function(req, res) {
+	connection.query('UPDATE sells SET quantity = ? WHERE productID = ? AND webshopID = ?',
+	[req.body.quantity, req.body.productID, req.body.webshopID], function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
 	});
