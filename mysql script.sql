@@ -19,13 +19,13 @@ CREATE TABLE product (
 
 CREATE TABLE sells (
 	productID INT(11) NOT NULL REFERENCES product(productID),
-    webshopID INT(11) NOT NULL REFERENCES product(webshopID),
+    webshopID INT(11) NOT NULL REFERENCES webshop(webshopID),
     quantity INT(11),
     PRIMARY KEY (productID, webshopID)
 );
 
 CREATE TABLE role (
-	name VARCHAR(50),
+	name VARCHAR(50) NOT NULL,
     roleID INT(11) NOT NULL,
     PRIMARY KEY (roleID)
 );
@@ -37,13 +37,14 @@ CREATE TABLE user (
     email VARCHAR(50),
     phone VARCHAR(50),
     roleID INT(11) NOT NULL REFERENCES role(roleID),
+    webshopID INT(11) REFERENCES webshop(webshopID),
     userID INT(11) NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (userID)
 );
 
 CREATE TABLE status (
-	name VARCHAR(50),
-    statusID INT(11),
+	name VARCHAR(50) NOT NULL,
+    statusID INT(11) NOT NULL,
     PRIMARY KEY (statusID)
 );
 

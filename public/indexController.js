@@ -186,29 +186,31 @@
 			.error(function(data) {
 				console.log('Error: ' + data);
 			});
-			
-		$http.get('/api/products')
-			.success(function(data) {
-				$scope.products = data;
-				console.log(data);
-			})
-			.error(function(data) {
-				console.log('Error: ' + data);
-			});
-
 	})
 	.controller("WebshopCtrl", function($scope, $stateParams) {
 		$scope.webshopID = $stateParams.webshopID;
 	})
 	.controller("AdminCtrl", function($scope, $http) {
-		$scope.createNewWebshop = function(name, id) {
-			console.log(name, id);
-			$http.post('/api/webshops', {name: name, webshopID: id})
+		$scope.webshops = [];
+		
+		$http.get('/api/webshops')
+			.success(function(data) {
+				$scope.webshops = data;
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
+		
+		$scope.createNewWebshop = function(name, bank, address, phone, email) {
+			console.log(name, bank, address, phone, email);
+			var body = {name: name, bankAccountNumber: bank, address: address, phone: phone, email: email};
+			$http.post('/api/webshops', body)
 				.success(function(data) {
 					console.log(data);
 				})
 				.error(function(data) {
-					console.log(data);
+					console.log('Error: ' + data);
 				});
 		}
 	});

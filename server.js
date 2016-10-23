@@ -40,12 +40,18 @@ app.use(bodyParser.json());
 
 // REST API
 app.get('/api/webshops', function(req, res) {
-	var collection = database.collection('webshops');
-	collection.find({}).toArray(function(err, docs) {
+	connection.query("SELECT * FROM webshop", function(err, result) {
 		if(err) res.send(err);
-		console.log("Found the following records:");
-		console.log(docs);
-		res.json(docs);
+		console.log("Found the following webshops:");
+		console.log(result);
+		res.json(result);
+	});
+});
+
+app.post('/api/webshops', function(req, res) {
+	connection.query('INSERT INTO webshop SET ?', req.body, function(err, result) {
+		if(err) res.send(err);
+		console.log(result);
 	});
 });
 
@@ -53,22 +59,9 @@ app.get('/api/products', function(req, res) {
 	var collection = database.collection('products');
 	collection.find({}).toArray(function(err, docs) {
 		if(err) res.send(err);
-		//console.log("Found the following records:");
-		//console.log(docs);
+		console.log("Found the following products:");
+		console.log(docs);
 		res.json(docs);
-	});
-});
-
-app.post('/api/webshops', function(req, res) {
-	var collection = database.collection('webshops');
-	console.log("req.body:");
-	console.log(req.body);
-	collection.insert({name:req.body.name, webshopID:req.body.webshopID},
-	  function(err, result) {
-		assert.equal(err, null);
-		//assert.equal(1, result.result.n);
-		//assert.equal(1, result.ops.length);
-		console.log("Inserted a document into the webshops collection");
 	});
 });
 
