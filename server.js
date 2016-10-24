@@ -48,6 +48,16 @@ app.get('/api/webshops', function(req, res) {
 	});
 });
 
+app.get('/api/webshops/:webshopID', function(req, res) {
+	connection.query('SELECT * FROM webshop WHERE webshopID = ?', req.params.webshopID,
+	function(err, result) {
+		if(err) res.send(err);
+		console.log('Found the following webshop infos:');
+		console.log(result);
+		res.json(result);
+	});
+});
+
 app.post('/api/webshops', function(req, res) {
 	connection.query('INSERT INTO webshop SET ?', req.body, function(err, result) {
 		if(err) res.send(err);
