@@ -99,11 +99,6 @@
 				templateUrl: 'admin/pages/orders.html'
 			})
 			.state({
-				name: 'admin.ordersarchive',
-				url: '/orders-archive',
-				templateUrl: 'admin/pages/orders-archive.html'
-			})
-			.state({
 				name: 'admin.offers',
 				url: '/offers',
 				templateUrl: 'admin/pages/offers.html'
