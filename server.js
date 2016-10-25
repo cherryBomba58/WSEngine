@@ -5,6 +5,7 @@ var MongoClient = require('mongodb').MongoClient;
 var mysql = require('mysql');
 var assert = require('assert');
 var bodyParser = require('body-parser');
+var md5 = require('md5');
 
 // Connect to MongoDB
 /*var url = 'mongodb://localhost:27017/project';
