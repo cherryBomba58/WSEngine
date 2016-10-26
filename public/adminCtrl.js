@@ -1,7 +1,8 @@
-﻿function AdminCtrl($scope, $http) {
+﻿function AdminCtrl($scope, $http, md5) {
 		$scope.webshops = [];
 		$scope.products = [];
 		$scope.sells = [];
+		$scope.wsadmins = [];
 		
 		$http.get('/api/webshops')
 			.success(function(data) {
@@ -24,6 +25,15 @@
 		$http.get('/api/sells')
 			.success(function(data) {
 				$scope.sells = data;
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
+			
+		$http.get('/api/wsadmins')
+			.success(function(data) {
+				$scope.wsadmins = data;
 				console.log(data);
 			})
 			.error(function(data) {
@@ -70,6 +80,18 @@
 			console.log(webshop, product, quan);
 			var body = {productID: product, webshopID: webshop, quantity: quan};
 			$http.put('/api/sells', body)
+				.success(function(data) {
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log('Error: ' + data);
+				});
+		}
+		
+		$scope.createNewWsAdmin = function(fullname, username, pass, email, phone, webshop) {
+			console.log(fullname, username, md5.createHash(pass), email, phone, webshop);
+			var body = {fullname: fullname, username: username, password: md5.createHash(pass), email: email, phone: phone, roleID: 2, webshopID: webshop};
+			$http.post('/api/wsadmins', body)
 				.success(function(data) {
 					console.log(data);
 				})

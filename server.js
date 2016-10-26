@@ -134,6 +134,22 @@ app.put('/api/sells', function(req, res) {
 	});
 });
 
+app.get('/api/wsadmins', function(req, res) {
+	connection.query('SELECT * FROM user WHERE roleID = 2', function(err, result) {
+		if(err) res.send(err);
+		console.log('Found the following webshop admins:');
+		console.log(result);
+		res.json(result);
+	});
+});
+
+app.post('/api/wsadmins', function(req, res) {
+	connection.query('INSERT INTO user SET ?', req.body, function(err, result) {
+		if(err) res.send(err);
+		console.log(result);
+	});
+});
+
 
 // Listening on port 3000
 app.listen(3000, function() {

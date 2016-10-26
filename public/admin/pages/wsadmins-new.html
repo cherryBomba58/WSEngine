@@ -39,16 +39,11 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Webshop</label>
-                                            <input type="text" class="form-control" placeholder="Enter a webshop" ng-model="webshop">
-                                            <p class="help-block">TODO: select.</p>
+                                            <select class="form-control" ng-model="webshop">
+                                            	<option value="{{w.webshopID}}" ng-repeat="w in webshops">{{w.name}}</option>
+                                            </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label>User ID</label>
-                                            <input type="number" class="form-control" placeholder="Enter a number" ng-model="id">
-                                            <p class="help-block">TODO: remove it.</p>
-                                            <p class="help-block">TODO: role must go on the request.</p>
-                                        </div>
-                                        <button type="submit" class="btn btn-default">Create</button><!--ng-click="createNewWebshop(name, id)"-->
+                                        <button type="submit" class="btn btn-default" ng-click="createNewWsAdmin(fullname, username, pass, email, phone, webshop)">Create</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
