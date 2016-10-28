@@ -82,6 +82,23 @@ app.get('/api/products', function(req, res) {
 	});
 });
 
+app.get('/api/products/:productID', function(req, res) {
+	connection.query('SELECT * FROM product WHERE productID = ?', req.params.productID,
+	function(err, result) {
+		if(err) res.send(err);
+		console.log('Found the following product infos: ');
+		console.log(result);
+		res.json(result);
+		/*var collection = database.collection('products');
+		collection.find({_id: req.params.productID}).toArray(function(err, docs) {
+			if(err) res.send(err);
+			console.log("Found the following products:");
+			console.log(docs);
+			res.json(docs);
+		});*/
+	});
+});
+
 app.post('/api/products', function(req, res) {
 	connection.query('INSERT INTO product SET ?', req.body, function(err, result) {
 		if(err) res.send(err);

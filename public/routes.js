@@ -14,72 +14,73 @@
 			.state({
 				name: 'webshops.home',
 				url: '/home',
-				templateUrl: 'webshop/pages/home.html',
+				templateUrl: 'webshop/pages/home.html'
 			})
 			.state({
 				name: 'webshops.notfound',
 				url: '/notfound',
-				templateUrl: 'webshop/pages/404.html',
+				templateUrl: 'webshop/pages/404.html'
 			})
 			.state({
 				name: 'webshops.about',
 				url: '/about',
-				templateUrl: 'webshop/pages/about.html',
+				templateUrl: 'webshop/pages/about.html'
 			})
 			.state({
 				name: 'webshops.contact',
 				url: '/contact',
-				templateUrl: 'webshop/pages/contact.html',
+				templateUrl: 'webshop/pages/contact.html'
 			})
 			.state({
 				name: 'webshops.faq',
 				url: '/faq',
-				templateUrl: 'webshop/pages/faq.html',
+				templateUrl: 'webshop/pages/faq.html'
 			})
 			.state({
 				name: 'webshops.myorders',
 				url: '/myorders',
-				templateUrl: 'webshop/pages/myorders.html',
+				templateUrl: 'webshop/pages/myorders.html'
 			})
 			.state({
 				name: 'webshops.login',
 				url: '/login',
-				templateUrl: 'webshop/pages/login.html',
+				templateUrl: 'webshop/pages/login.html'
 			})
 			.state({
 				name: 'webshops.portfolio1',
 				url: '/portfolio1',
-				templateUrl: 'webshop/pages/portfolio-1-col.html',
+				templateUrl: 'webshop/pages/portfolio-1-col.html'
 			})
 			.state({
 				name: 'webshops.portfolio2',
 				url: '/portfolio2',
-				templateUrl: 'webshop/pages/portfolio-2-col.html',
+				templateUrl: 'webshop/pages/portfolio-2-col.html'
 			})
 			.state({
 				name: 'webshops.portfolio3',
 				url: '/portfolio3',
-				templateUrl: 'webshop/pages/portfolio-3-col.html',
+				templateUrl: 'webshop/pages/portfolio-3-col.html'
 			})
 			.state({
 				name: 'webshops.portfolio4',
 				url: '/portfolio4',
-				templateUrl: 'webshop/pages/portfolio-4-col.html',
+				templateUrl: 'webshop/pages/portfolio-4-col.html'
 			})
 			.state({
 				name: 'webshops.item',
-				url: '/item',
+				url: '/item/{productID}',
 				templateUrl: 'webshop/pages/portfolio-item.html',
+				controller: 'ItemCtrl'
 			})
 			.state({
 				name: 'webshops.regist',
 				url: '/regist',
-				templateUrl: 'webshop/pages/regist.html',
+				templateUrl: 'webshop/pages/regist.html'
 			})
 			.state({
 				name: 'webshops.mydata',
 				url: '/mydata',
-				templateUrl: 'webshop/pages/mydata.html',
+				templateUrl: 'webshop/pages/mydata.html'
 			})
 			.state({
 				name: 'admin',
