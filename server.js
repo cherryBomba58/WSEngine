@@ -160,6 +160,18 @@ app.get('/api/wsadmins', function(req, res) {
 	});
 });
 
+app.get('/api/wsadmins/:webshopID', function(req, res) {
+	connection.query('SELECT u.*, r.name AS roleName FROM user u ' +
+	'INNER JOIN role r ON u.roleID = r.roleID ' +
+	'WHERE u.roleID = 1 OR (u.roleID = 2 AND u.webshopID = ?)',
+	req.params.webshopID, function(err, result) {
+		if(err) res.send(err);
+		console.log('Found the following webshop admin infos:');
+		console.log(result);
+		res.json(result);
+	});
+});
+
 app.post('/api/wsadmins', function(req, res) {
 	connection.query('INSERT INTO user SET ?', req.body, function(err, result) {
 		if(err) res.send(err);
