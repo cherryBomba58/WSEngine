@@ -4,41 +4,49 @@
 		$scope.sells = [];
 		$scope.wsadmins = [];
 		
-		$http.get('/api/webshops')
-			.success(function(data) {
-				$scope.webshops = data;
-				console.log(data);
-			})
-			.error(function(data) {
-				console.log('Error: ' + data);
-			});
+		$scope.getWebshops = function() {
+			$http.get('/api/webshops')
+				.success(function(data) {
+					$scope.webshops = data;
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log('Error: ' + data);
+				});
+		}
 		
-		$http.get('/api/products')
-			.success(function(data) {
-				$scope.products = data;
-				console.log(data);
-			})
-			.error(function(data) {
-				console.log('Error: ' + data);
-			});
-		
-		$http.get('/api/sells')
-			.success(function(data) {
-				$scope.sells = data;
-				console.log(data);
-			})
-			.error(function(data) {
-				console.log('Error: ' + data);
-			});
+		$scope.getProducts = function() {
+			$http.get('/api/products')
+				.success(function(data) {
+					$scope.products = data;
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log('Error: ' + data);
+				});
+		}
 			
-		$http.get('/api/wsadmins')
-			.success(function(data) {
-				$scope.wsadmins = data;
-				console.log(data);
-			})
-			.error(function(data) {
-				console.log('Error: ' + data);
-			});
+		$scope.getSells = function() {
+			$http.get('/api/sells')
+				.success(function(data) {
+					$scope.sells = data;
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log('Error: ' + data);
+				});
+		}
+				
+		$scope.getWebshopAdmins = function() {
+			$http.get('/api/wsadmins')
+				.success(function(data) {
+					$scope.wsadmins = data;
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log('Error: ' + data);
+				});
+		}
 		
 		$scope.createNewWebshop = function(name, bank, address, phone, email) {
 			console.log(name, bank, address, phone, email);
@@ -46,9 +54,11 @@
 			$http.post('/api/webshops', body)
 				.success(function(data) {
 					console.log(data);
+					alert("New webshop created!");
 				})
 				.error(function(data) {
 					console.log('Error: ' + data);
+					alert("Sorry, something's wrong!");
 				});
 		}
 		
@@ -58,9 +68,11 @@
 			$http.post('/api/products', body)
 				.success(function(data) {
 					console.log(data);
+					alert("New product created!");
 				})
 				.error(function(data) {
 					console.log('Error: ' + data);
+					alert("Sorry, something's wrong!");
 				});
 		}
 		
@@ -70,9 +82,11 @@
 			$http.post('/api/sells', body)
 				.success(function(data) {
 					console.log(data);
+					alert("Product placed to webshop!");
 				})
 				.error(function(data) {
 					console.log('Error: ' + data);
+					alert("Sorry, something's wrong!");
 				});
 		}
 		
@@ -82,9 +96,11 @@
 			$http.put('/api/sells', body)
 				.success(function(data) {
 					console.log(data);
+					alert("Offer updated!");
 				})
 				.error(function(data) {
 					console.log('Error: ' + data);
+					alert("Sorry, something's wrong!");
 				});
 		}
 		
@@ -94,9 +110,11 @@
 			$http.post('/api/wsadmins', body)
 				.success(function(data) {
 					console.log(data);
+					alert("New webshop admin created!");
 				})
 				.error(function(data) {
 					console.log('Error: ' + data);
+					alert("Sorry, something's wrong!");
 				});
 		}
 	}

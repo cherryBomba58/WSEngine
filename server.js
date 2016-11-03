@@ -63,6 +63,7 @@ app.post('/api/webshops', function(req, res) {
 	connection.query('INSERT INTO webshop SET ?', req.body, function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
+		res.json(result);
 	});
 });
 
@@ -103,6 +104,7 @@ app.post('/api/products', function(req, res) {
 	connection.query('INSERT INTO product SET ?', req.body, function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
+		res.json(result);
 		/*var collection = database.collection('products');
 		collection.insert({_id:most_beszurt_id, attr1:req.body.attr1, attr2:req.body.attr2}, function(err, result) {
 			assert.equal(err, null);
@@ -140,6 +142,7 @@ app.post('/api/sells', function(req, res) {
 	connection.query('INSERT INTO sells SET ?', req.body, function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
+		res.json(result);
 	});
 });
 
@@ -148,11 +151,14 @@ app.put('/api/sells', function(req, res) {
 	[req.body.quantity, req.body.productID, req.body.webshopID], function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
+		res.json(result);
 	});
 });
 
 app.get('/api/wsadmins', function(req, res) {
-	connection.query('SELECT * FROM user WHERE roleID = 2', function(err, result) {
+	connection.query('SELECT u.*, w.name AS webshopName FROM user u ' +
+	'INNER JOIN webshop w ON u.webshopID = w.webshopID ' + 
+	'WHERE roleID = 2', function(err, result) {
 		if(err) res.send(err);
 		console.log('Found the following webshop admins:');
 		console.log(result);
@@ -176,6 +182,7 @@ app.post('/api/wsadmins', function(req, res) {
 	connection.query('INSERT INTO user SET ?', req.body, function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
+		res.json(result);
 	});
 });
 

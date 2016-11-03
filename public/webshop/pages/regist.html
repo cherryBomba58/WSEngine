@@ -26,8 +26,14 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Full Name:</label>
-                            <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                            <input type="text" class="form-control" id="fullname" required data-validation-required-message="Please enter your full name.">
                             <p class="help-block"></p>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label>Username:</label>
+                            <input type="text" class="form-control" id="username" required data-validation-required-message="Please enter your username.">
                         </div>
                     </div>
                     <div class="control-group form-group">
@@ -44,8 +50,14 @@
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
-                            <label>Message:</label>
-                            <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                            <label>Password:</label>
+                            <input type="password" class="form-control" id="pass1" required data-validation-required-message="Please enter your password.">
+                        </div>
+                    </div>
+					<div class="control-group form-group">
+                        <div class="controls">
+                            <label>Password:</label>
+                            <input type="password" class="form-control" id="pass2" required data-validation-required-message="Please enter your password again.">
                         </div>
                     </div>
                     <div id="success"></div>
