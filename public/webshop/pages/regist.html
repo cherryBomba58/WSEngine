@@ -26,43 +26,43 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Full Name:</label>
-                            <input type="text" class="form-control" id="fullname" required data-validation-required-message="Please enter your full name.">
+                            <input type="text" class="form-control" ng-model="fullname" id="fullname" placeholder="Please enter your full name." required data-validation-required-message="Please enter your full name.">
                             <p class="help-block"></p>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Username:</label>
-                            <input type="text" class="form-control" id="username" required data-validation-required-message="Please enter your username.">
+                            <input type="text" class="form-control" ng-model="username" id="username" placeholder="Please enter your username." required data-validation-required-message="Please enter your username.">
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Phone Number:</label>
-                            <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+                            <input type="tel" class="form-control" ng-model="phone" id="phone" placeholder="Please enter your phone number." required data-validation-required-message="Please enter your phone number.">
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Email Address:</label>
-                            <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                            <input type="email" class="form-control" ng-model="email" id="email" placeholder="Please enter your email address." required data-validation-required-message="Please enter your email address.">
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Password:</label>
-                            <input type="password" class="form-control" id="pass1" required data-validation-required-message="Please enter your password.">
+                            <input type="password" class="form-control" ng-model="pass1" id="pass1" placeholder="Please enter your password." required data-validation-required-message="Please enter your password.">
                         </div>
                     </div>
 					<div class="control-group form-group">
                         <div class="controls">
                             <label>Password:</label>
-                            <input type="password" class="form-control" id="pass2" required data-validation-required-message="Please enter your password again.">
+                            <input type="password" class="form-control" ng-model="pass2" id="pass2" placeholder="Please enter your password again." required data-validation-required-message="Please enter your password again.">
                         </div>
                     </div>
                     <div id="success"></div>
                     <!-- For success/fail messages -->
-                    <button type="submit" class="btn btn-primary">Registrate</button>
+                    <button type="submit" class="btn btn-primary" ng-click="registrateBuyer(fullname, username, phone, email, pass1, pass2)">Registrate</button>
                 </form>
             </div>
 

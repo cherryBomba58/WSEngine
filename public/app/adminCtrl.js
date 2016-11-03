@@ -107,7 +107,7 @@
 		$scope.createNewWsAdmin = function(fullname, username, pass, email, phone, webshop) {
 			console.log(fullname, username, md5.createHash(pass), email, phone, webshop);
 			var body = {fullname: fullname, username: username, password: md5.createHash(pass), email: email, phone: phone, roleID: 2, webshopID: webshop};
-			$http.post('/api/wsadmins', body)
+			$http.post('/api/users', body)
 				.success(function(data) {
 					console.log(data);
 					alert("New webshop admin created!");

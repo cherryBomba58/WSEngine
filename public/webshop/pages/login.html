@@ -26,19 +26,19 @@
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Username:</label>
-                            <input type="text" class="form-control" id="name" required data-validation-required-message="Please enter your name.">
+                            <input type="text" class="form-control" ng-model="username" id="username" placeholder="Please enter your username." required data-validation-required-message="Please enter your username.">
                             <p class="help-block"></p>
                         </div>
                     </div>
                     <div class="control-group form-group">
                         <div class="controls">
                             <label>Password:</label>
-                            <input type="password" class="form-control" id="pass" required data-validation-required-message="Please enter your password.">
+                            <input type="password" class="form-control" ng-model="pass" id="pass" placeholder="Please enter your password." required data-validation-required-message="Please enter your password.">
                         </div>
                     </div>
                     <div id="success"></div>
                     <!-- For success/fail messages -->
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" class="btn btn-primary" ng-click="loginBuyer(username, pass)">Login</button>
                 </form>
             </div>
 

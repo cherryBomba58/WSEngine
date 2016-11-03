@@ -178,7 +178,17 @@ app.get('/api/wsadmins/:webshopID', function(req, res) {
 	});
 });
 
-app.post('/api/wsadmins', function(req, res) {
+app.get('/api/users/:username', function(req, res) {
+	connection.query('SELECT * FROM user WHERE username = ?', req.params.username,
+	function(err, result) {
+		if(err) res.send(err);
+		console.log('Found the following user infos:');
+		console.log(result);
+		res.json(result);
+	});
+});
+
+app.post('/api/users', function(req, res) {
 	connection.query('INSERT INTO user SET ?', req.body, function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
