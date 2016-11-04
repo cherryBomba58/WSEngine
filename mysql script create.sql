@@ -11,7 +11,7 @@ CREATE TABLE webshop (
 CREATE TABLE product (
 	name VARCHAR(50),
     price INT(11),
-    description VARCHAR(50),
+    description VARCHAR(300),
     categoryID INT(11),
     productID INT(11) NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (productID)
