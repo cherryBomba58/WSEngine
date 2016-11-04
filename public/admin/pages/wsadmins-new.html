@@ -25,10 +25,6 @@
                                             <label>User name</label>
                                             <input type="text" class="form-control" placeholder="Enter a user name" ng-model="username">
                                         </div>
-										<div class="form-group">
-                                            <label>Password</label>
-                                            <input type="password" class="form-control" placeholder="Enter a password" ng-model="pass">
-                                        </div>
                                         <div class="form-group">
                                             <label>Email</label>
                                             <input type="email" class="form-control" placeholder="Enter an email" ng-model="email">
@@ -43,7 +39,15 @@
                                             	<option value="{{w.webshopID}}" ng-repeat="w in webshops">{{w.name}}</option>
                                             </select>
                                         </div>
-                                        <button type="submit" class="btn btn-default" ng-click="createNewWsAdmin(fullname, username, pass, email, phone, webshop)">Create</button>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="password" class="form-control" placeholder="Enter a password" ng-model="pass1">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="password" class="form-control" placeholder="Enter your password again" ng-model="pass2">
+                                        </div>
+                                        <button type="submit" class="btn btn-default" ng-click="createNewWsAdmin(fullname, username, email, phone, webshop, pass1, pass2)">Create</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->

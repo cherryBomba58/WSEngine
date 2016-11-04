@@ -1,4 +1,4 @@
-﻿function WebshopCtrl($scope, $stateParams, $http, md5) {
+﻿function WebshopCtrl($scope, $stateParams, $http, md5, $cookies, $state) {
 		$scope.webshopID = $stateParams.webshopID;
 		$scope.sells = [];
 		$scope.webshop = {};
@@ -59,16 +59,16 @@
 				})
 				.error(function(data) {
 					console.log('Error: ' + data);
-					alert("Sorry, something's wrong! Your login didn't succeed because of a server error.");
+					alert("Sorry, something's wrong!");
 				});
 		}
 		
 		$scope.loginBuyer = function(username, pass) {
-			console.log(username, pass);
+			console.log(username, md5.createHash(pass));
 			$http.get('/api/users/' + username)
 				.success(function(data) {
 					console.log(data);
-					if(data.length != 1) {
+					if(data.length == 0 || data[0].roleID != 3) {
 						alert("Wrong username!");
 						return;
 					}
@@ -76,9 +76,9 @@
 						alert("Wrong password!");
 						return;
 					}
-					// TODO: cookie-ba tárolni
-					// TODO: átirányítani!
-					alert("Successful login!");	// TODO: törölni ezt
+					$cookies.put('userID', data[0].userID);
+					$cookies.put('username', data[0].username);
+					$state.go('webshops.home');
 				})
 				.error(function(data) {
 					console.log('Error: ' + data);

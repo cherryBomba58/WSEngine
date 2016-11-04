@@ -166,6 +166,7 @@
 			.state({
 				name: 'login',
 				url: '/login',
-				templateUrl: 'admin/pages/login.html'
+				templateUrl: 'admin/pages/login.html',
+				controller: 'LoginAdminCtrl'
 			});
 	}
