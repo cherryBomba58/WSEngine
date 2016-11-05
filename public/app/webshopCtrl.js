@@ -5,11 +5,15 @@
 		$scope.admins = [];
 		
 		// hide or show navigation menupoints: is a buyer logged in or not?
-		if(($cookies.get('userID') != "") && ($cookies.get('roleID') == 3)) {
-			$scope.onPublic = {display: 'none'};
-		}
-		else {
-			$scope.onCookie = {display: 'none'};
+		$scope.refreshMenu = function() {
+			if(($cookies.get('userID') != "") && ($cookies.get('roleID') == 3) && ($cookies.get('webshopID') == $scope.webshopID)) {
+				$scope.onPublic = {display: 'none'};
+				$scope.onCookie = {display: 'block'};
+			}
+			else {
+				$scope.onCookie = {display: 'none'};
+				$scope.onPublic = {display: 'block'};
+			}
 		}
 		
 		// REST API requests
@@ -77,7 +81,7 @@
 			$http.get('/api/users/' + username)
 				.success(function(data) {
 					console.log(data);
-					if(data.length == 0 || data[0].roleID != 3) {
+					if(data.length == 0 || data[0].roleID != 3 || data[0].webshopID != $scope.webshopID) {
 						alert("Wrong username!");
 						return;
 					}
@@ -88,6 +92,8 @@
 					$cookies.put('userID', data[0].userID);
 					$cookies.put('username', data[0].username);
 					$cookies.put('roleID', data[0].roleID);
+					$cookies.put('webshopID', data[0].webshopID);
+					$scope.refreshMenu();
 					$state.go('webshops.home');
 				})
 				.error(function(data) {
@@ -100,6 +106,8 @@
 			$cookies.remove('userID');
 			$cookies.remove('username');
 			$cookies.remove('roleID');
-			$state.go('webshops.login');
+			$cookies.remove('webshopID');
+			$scope.refreshMenu();
+			$state.go('webshops.home');
 		}
 	}
