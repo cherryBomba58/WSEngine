@@ -6,7 +6,7 @@
 		
 		// hide or show navigation menupoints: is a buyer logged in or not?
 		$scope.refreshMenu = function() {
-			if(($cookies.get('userID') != "") && ($cookies.get('roleID') == 3) && ($cookies.get('webshopID') == $scope.webshopID)) {
+			if(($cookies.get('userID') !== undefined) && ($cookies.get('roleID') == 3) && ($cookies.get('webshopID') == $scope.webshopID)) {
 				$scope.onPublic = {display: 'none'};
 				$scope.onCookie = {display: 'block'};
 			}
@@ -90,7 +90,6 @@
 						return;
 					}
 					$cookies.put('userID', data[0].userID);
-					$cookies.put('username', data[0].username);
 					$cookies.put('roleID', data[0].roleID);
 					$cookies.put('webshopID', data[0].webshopID);
 					$scope.refreshMenu();
@@ -104,7 +103,6 @@
 		
 		$scope.logoutBuyer = function() {
 			$cookies.remove('userID');
-			$cookies.remove('username');
 			$cookies.remove('roleID');
 			$cookies.remove('webshopID');
 			$scope.refreshMenu();
