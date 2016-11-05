@@ -48,3 +48,14 @@ CREATE TABLE status (
     PRIMARY KEY (statusID)
 );
 
+CREATE TABLE buy (
+	buyerID INT(11) NOT NULL REFERENCES user(userID),
+    webshopID INT(11) NOT NULL REFERENCES webshop(webshopID),
+    productID INT(11) NOT NULL REFERENCES product(productID),
+    statusID INT(11) NOT NULL REFERENCES status(statusID),
+    quantity INT(11) NOT NULL,
+    datetime DATETIME NOT NULL,
+    transID INT(11) NOT NULL AUTO_INCREMENT,
+    PRIMARY KEY (transID)
+);
+    

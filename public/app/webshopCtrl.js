@@ -4,6 +4,15 @@
 		$scope.webshop = {};
 		$scope.admins = [];
 		
+		// hide or show navigation menupoints: is a buyer logged in or not?
+		if(($cookies.get('userID') != "") && ($cookies.get('roleID') == 3)) {
+			$scope.onPublic = {display: 'none'};
+		}
+		else {
+			$scope.onCookie = {display: 'none'};
+		}
+		
+		// REST API requests
 		$http.get('/api/sells/' + $scope.webshopID)
 			.success(function(data) {
 				$scope.sells = data;
@@ -78,11 +87,19 @@
 					}
 					$cookies.put('userID', data[0].userID);
 					$cookies.put('username', data[0].username);
+					$cookies.put('roleID', data[0].roleID);
 					$state.go('webshops.home');
 				})
 				.error(function(data) {
 					console.log('Error: ' + data);
 					alert("Sorry, something's wrong! Your login didn't succeed because of a server error.");
 				});
+		}
+		
+		$scope.logoutBuyer = function() {
+			$cookies.remove('userID');
+			$cookies.remove('username');
+			$cookies.remove('roleID');
+			$state.go('webshops.login');
 		}
 	}

@@ -17,11 +17,6 @@
 				templateUrl: 'webshop/pages/home.html'
 			})
 			.state({
-				name: 'webshops.notfound',
-				url: '/notfound',
-				templateUrl: 'webshop/pages/404.html'
-			})
-			.state({
 				name: 'webshops.about',
 				url: '/about',
 				templateUrl: 'webshop/pages/about.html'
@@ -32,39 +27,19 @@
 				templateUrl: 'webshop/pages/contact.html'
 			})
 			.state({
-				name: 'webshops.faq',
-				url: '/faq',
-				templateUrl: 'webshop/pages/faq.html'
-			})
-			.state({
 				name: 'webshops.myorders',
 				url: '/myorders',
 				templateUrl: 'webshop/pages/myorders.html'
 			})
 			.state({
+				name: 'webshops.mycart',
+				url: '/mycart',
+				templateUrl: 'webshop/pages/mycart.html'
+			})
+			.state({
 				name: 'webshops.login',
 				url: '/login',
 				templateUrl: 'webshop/pages/login.html'
-			})
-			.state({
-				name: 'webshops.portfolio1',
-				url: '/portfolio1',
-				templateUrl: 'webshop/pages/portfolio-1-col.html'
-			})
-			.state({
-				name: 'webshops.portfolio2',
-				url: '/portfolio2',
-				templateUrl: 'webshop/pages/portfolio-2-col.html'
-			})
-			.state({
-				name: 'webshops.portfolio3',
-				url: '/portfolio3',
-				templateUrl: 'webshop/pages/portfolio-3-col.html'
-			})
-			.state({
-				name: 'webshops.portfolio4',
-				url: '/portfolio4',
-				templateUrl: 'webshop/pages/portfolio-4-col.html'
 			})
 			.state({
 				name: 'webshops.item',
@@ -168,5 +143,11 @@
 				url: '/login',
 				templateUrl: 'admin/pages/login.html',
 				controller: 'LoginAdminCtrl'
+			})
+			.state({
+				name: 'notfound',
+				url: '/notfound',
+				templateUrl: '404.html'
 			});
 	}
+	

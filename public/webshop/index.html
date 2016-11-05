@@ -22,16 +22,22 @@
                         <a ui-sref-active="active" ui-sref="webshops.contact">Contact</a>
                     </li>
                     <li>
-	                    <a ui-sref-active="active" ui-sref="webshops.myorders">My Orders</a>
+	                    <a ng-style="onCookie" ui-sref-active="active" ui-sref="webshops.mycart">My Cart</a>
 	                </li>
                     <li>
-	                    <a ui-sref-active="active" ui-sref="webshops.mydata">My Data</a>
+	                    <a ng-style="onCookie" ui-sref-active="active" ui-sref="webshops.myorders">My Orders</a>
 	                </li>
                     <li>
-	                    <a ui-sref-active="active" ui-sref="webshops.regist">Registrate</a>
+	                    <a ng-style="onCookie" ui-sref-active="active" ui-sref="webshops.mydata">My Data</a>
+	                </li>
+                    <li>
+	                    <a ng-style="onPublic" ui-sref-active="active" ui-sref="webshops.regist">Registrate</a>
 	                </li>
 	                <li>
-	                    <a ui-sref-active="active" ui-sref="webshops.login">Login</a>
+	                    <a ng-style="onPublic" ui-sref-active="active" ui-sref="webshops.login">Login</a>
+	                </li>
+	                <li>
+	                    <a ng-style="onCookie" ng-click="logoutBuyer()">Logout</a>
 	                </li>
                 </ul>
             </div>
