@@ -3,7 +3,8 @@
 			.state({
 				name: 'root',
 				url: '',
-				templateUrl: 'home.html'
+				templateUrl: 'home.html',
+				controller: 'WebshopEngineCtrl'
 			})
 			.state({
 				name: 'webshops',

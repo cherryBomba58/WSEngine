@@ -1,4 +1,4 @@
-﻿function AdminCtrl($scope, $http, md5) {
+﻿function AdminCtrl($scope, $http, md5, $cookies, $state) {
 		$scope.webshops = [];
 		$scope.products = [];
 		$scope.sells = [];
@@ -134,5 +134,13 @@
 					console.log('Error: ' + data);
 					alert("Sorry, something's wrong!");
 				});
+		}
+		
+		$scope.logoutAdmin = function() {
+			$cookies.remove('userID');
+			$cookies.remove('username');
+			$cookies.remove('roleID');
+			$cookies.remove('webshopID');
+			$state.go('login');
 		}
 	}
