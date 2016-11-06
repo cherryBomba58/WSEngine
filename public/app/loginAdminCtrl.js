@@ -16,6 +16,7 @@
 					$cookies.put('userID', data[0].userID);
 					$cookies.put('username', data[0].username);
 					$cookies.put('roleID', data[0].roleID);
+					$cookies.put('webshopID', data[0].webshopID);
 					$state.go('admin.home');
 				})
 				.error(function(data) {

@@ -34,7 +34,8 @@
 			.state({
 				name: 'webshops.mycart',
 				url: '/mycart',
-				templateUrl: 'webshop/pages/mycart.html'
+				templateUrl: 'webshop/pages/mycart.html',
+				controller: 'CartCtrl'
 			})
 			.state({
 				name: 'webshops.login',

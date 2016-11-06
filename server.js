@@ -158,7 +158,7 @@ app.put('/api/sells', function(req, res) {
 app.get('/api/wsadmins', function(req, res) {
 	connection.query('SELECT u.*, w.name AS webshopName FROM user u ' +
 	'INNER JOIN webshop w ON u.webshopID = w.webshopID ' + 
-	'WHERE roleID = 2', function(err, result) {
+	'WHERE u.roleID = 2', function(err, result) {
 		if(err) res.send(err);
 		console.log('Found the following webshop admins:');
 		console.log(result);
@@ -190,6 +190,26 @@ app.get('/api/users/:username', function(req, res) {
 
 app.post('/api/users', function(req, res) {
 	connection.query('INSERT INTO user SET ?', req.body, function(err, result) {
+		if(err) res.send(err);
+		console.log(result);
+		res.json(result);
+	});
+});
+
+app.get('/api/cart/:userid', function(req, res) {
+	connection.query('SELECT b.*, p.name AS productName FROM buy b ' +
+	'INNER JOIN product p ON b.productID = p.productID ' +
+	'WHERE b.buyerID = ? AND b.statusID = 1', req.params.userid,
+	function(err, result) {
+		if(err) res.send(err);
+		console.log('Found the following cart infos:');
+		console.log(result);
+		res.json(result);
+	});
+});
+
+app.post('/api/orders', function(req, res) {
+	connection.query('INSERT INTO buy SET ?', req.body, function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
 		res.json(result);

@@ -90,6 +90,7 @@
 						return;
 					}
 					$cookies.put('userID', data[0].userID);
+					$cookies.put('username', data[0].username);
 					$cookies.put('roleID', data[0].roleID);
 					$cookies.put('webshopID', data[0].webshopID);
 					$scope.refreshMenu();
@@ -103,6 +104,7 @@
 		
 		$scope.logoutBuyer = function() {
 			$cookies.remove('userID');
+			$cookies.remove('username');
 			$cookies.remove('roleID');
 			$cookies.remove('webshopID');
 			$scope.refreshMenu();
