@@ -196,8 +196,23 @@ app.post('/api/users', function(req, res) {
 	});
 });
 
+app.get('/api/orders', function(req, res) {
+	connection.query('SELECT b.*, p.name AS productName, p.price, ' +
+	's.name AS statusName, u.username, w.name AS webshopName FROM buy b ' +
+	'INNER JOIN product p ON b.productID = p.productID ' +
+	'INNER JOIN status s ON b.statusID = s.statusID ' +
+	'INNER JOIN user u ON b.buyerID = u.userID ' +
+	'INNER JOIN webshop w ON b.webshopID = w.webshopID ' +
+	'WHERE b.statusID != 1', function(err, result) {
+		if(err) res.send(err);
+		console.log('Found the following order infos:');
+		console.log(result);
+		res.json(result);
+	});
+});
+
 app.get('/api/cart/:userid', function(req, res) {
-	connection.query('SELECT b.*, p.name AS productName FROM buy b ' +
+	connection.query('SELECT b.*, p.name AS productName, p.price FROM buy b ' +
 	'INNER JOIN product p ON b.productID = p.productID ' +
 	'WHERE b.buyerID = ? AND b.statusID = 1', req.params.userid,
 	function(err, result) {
@@ -208,8 +223,40 @@ app.get('/api/cart/:userid', function(req, res) {
 	});
 });
 
+app.get('/api/orders/:userid', function(req, res) {
+	connection.query('SELECT b.*, p.name AS productName, p.price, ' +
+	's.name AS statusName FROM buy b ' +
+	'INNER JOIN product p ON b.productID = p.productID ' +
+	'INNER JOIN status s ON b.statusID = s.statusID ' +
+	'WHERE b.buyerID = ? AND b.statusID != 1', req.params.userid,
+	function(err, result) {
+		if(err) res.send(err);
+		console.log('Found the following order infos:');
+		console.log(result);
+		res.json(result);
+	});
+});
+
 app.post('/api/orders', function(req, res) {
 	connection.query('INSERT INTO buy SET ?', req.body, function(err, result) {
+		if(err) res.send(err);
+		console.log(result);
+		res.json(result);
+	});
+});
+
+app.delete('/api/orders/:transID', function(req, res) {
+	connection.query('DELETE FROM buy WHERE transID = ?', req.params.transID,
+	function(err, result) {
+		if(err) res.send(err);
+		console.log(result);
+		res.json(result);
+	});
+});
+
+app.put('/api/orders/:userid/', function(req, res) {
+	connection.query('UPDATE buy SET statusID = 2 WHERE statusID = 1 AND buyerID = ?',
+	req.params.userid, function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
 		res.json(result);

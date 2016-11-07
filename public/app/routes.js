@@ -30,7 +30,8 @@
 			.state({
 				name: 'webshops.myorders',
 				url: '/myorders',
-				templateUrl: 'webshop/pages/myorders.html'
+				templateUrl: 'webshop/pages/myorders.html',
+				controller: 'OrderCtrl'
 			})
 			.state({
 				name: 'webshops.mycart',

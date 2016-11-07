@@ -3,6 +3,7 @@
 		$scope.products = [];
 		$scope.sells = [];
 		$scope.wsadmins = [];
+		$scope.orders = [];
 		
 		$scope.getWebshops = function() {
 			$http.get('/api/webshops')
@@ -41,6 +42,17 @@
 			$http.get('/api/wsadmins')
 				.success(function(data) {
 					$scope.wsadmins = data;
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log('Error: ' + data);
+				});
+		}
+		
+		$scope.getOrders = function() {
+			$http.get('/api/orders')
+				.success(function(data) {
+					$scope.orders = data;
 					console.log(data);
 				})
 				.error(function(data) {
