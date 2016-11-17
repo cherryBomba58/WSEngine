@@ -6,6 +6,8 @@ var mysql = require('mysql');
 var assert = require('assert');
 var bodyParser = require('body-parser');
 var md5 = require('md5');
+var multer = require('multer');
+var upload = multer({dest: 'pictures/'});
 
 // Connect to MongoDB
 /*var url = 'mongodb://localhost:27017/project';
@@ -100,8 +102,11 @@ app.get('/api/products/:productID', function(req, res) {
 	});
 });
 
-app.post('/api/products', function(req, res) {
-	connection.query('INSERT INTO product SET ?', req.body, function(err, result) {
+// HERE COMES MULTER
+app.post('/api/products', upload.single('img'), function(req, res) {
+	console.log(req.file);
+	console.log(req.body);
+	/*connection.query('INSERT INTO product SET ?', req.body, function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
 		res.json(result);
@@ -112,8 +117,8 @@ app.post('/api/products', function(req, res) {
 			assert.equal(1, result.ops.length);
 			console.log("Inserted 1 document into the products collection");
 			callback(result);
-		});*/
-	});
+		});
+	});*/
 });
 
 app.get('/api/sells', function(req, res) {
