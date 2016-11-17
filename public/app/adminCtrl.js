@@ -60,17 +60,32 @@
 				});
 		}
 		
-		$scope.createNewWebshop = function(name, bank, address, phone, email) {
-			console.log(name, bank, address, phone, email);
-			var body = {name: name, bankAccountNumber: bank, address: address, phone: phone, email: email};
-			$http.post('/api/webshops', body)
+		$scope.createNewWebshop = function(name, bank, address, phone, email, url) {
+			console.log(name, bank, address, phone, email, url);
+			if(url == null) {
+				alert("URL is required.");
+				return;
+			}
+			$http.get('/api/webshops/' + url)
 				.success(function(data) {
-					console.log(data);
-					alert("New webshop created!");
+					if(data.length != 0) {
+						alert("This URL is already existing! Choose another URL name.");
+						return;
+					}
+					var body = {name: name, bankAccountNumber: bank, address: address, phone: phone, email: email, url: url};
+					$http.post('/api/webshops', body)
+						.success(function(data) {
+							console.log(data);
+							alert("New webshop created!");
+						})
+						.error(function(data) {
+							console.log('Error: ' + data);
+							alert("Sorry, something's wrong! Your webshop wasn't created.");
+						});
 				})
 				.error(function(data) {
 					console.log('Error: ' + data);
-					alert("Sorry, something's wrong!");
+					alert("Sorry, something is wrong!");
 				});
 		}
 		
@@ -152,7 +167,7 @@
 			$cookies.remove('userID');
 			$cookies.remove('username');
 			$cookies.remove('roleID');
-			$cookies.remove('webshopID');
+			$cookies.remove('webshopUrl');
 			$state.go('login');
 		}
 	}

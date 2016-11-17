@@ -50,7 +50,7 @@ app.get('/api/webshops', function(req, res) {
 });
 
 app.get('/api/webshops/:webshopID', function(req, res) {
-	connection.query('SELECT * FROM webshop WHERE webshopID = ?', req.params.webshopID,
+	connection.query('SELECT * FROM webshop WHERE url = ?', req.params.webshopID,
 	function(err, result) {
 		if(err) res.send(err);
 		console.log('Found the following webshop infos:');
@@ -119,7 +119,7 @@ app.post('/api/products', function(req, res) {
 app.get('/api/sells', function(req, res) {
 	connection.query('SELECT s.*, p.name AS productName, w.name AS webshopName FROM sells s ' + 
 	'INNER JOIN product p ON s.productID = p.productID ' + 
-	'INNER JOIN webshop w ON s.webshopID = w.webshopID', function(err, result) {
+	'INNER JOIN webshop w ON s.webshopID = w.url', function(err, result) {
 		if(err) res.send(err);
 		console.log('Found the following webshop-product pairs:');
 		console.log(result);
@@ -157,7 +157,7 @@ app.put('/api/sells', function(req, res) {
 
 app.get('/api/wsadmins', function(req, res) {
 	connection.query('SELECT u.*, w.name AS webshopName FROM user u ' +
-	'INNER JOIN webshop w ON u.webshopID = w.webshopID ' + 
+	'INNER JOIN webshop w ON u.webshopID = w.url ' + 
 	'WHERE u.roleID = 2', function(err, result) {
 		if(err) res.send(err);
 		console.log('Found the following webshop admins:');
@@ -202,7 +202,7 @@ app.get('/api/orders', function(req, res) {
 	'INNER JOIN product p ON b.productID = p.productID ' +
 	'INNER JOIN status s ON b.statusID = s.statusID ' +
 	'INNER JOIN user u ON b.buyerID = u.userID ' +
-	'INNER JOIN webshop w ON b.webshopID = w.webshopID ' +
+	'INNER JOIN webshop w ON b.webshopID = w.url ' +
 	'WHERE b.statusID != 1', function(err, result) {
 		if(err) res.send(err);
 		console.log('Found the following order infos:');

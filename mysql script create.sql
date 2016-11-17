@@ -4,22 +4,22 @@ CREATE TABLE webshop (
     address VARCHAR(50),
     phone VARCHAR(50),
     email VARCHAR(50),
-    webshopID INT(11) NOT NULL AUTO_INCREMENT,
-    PRIMARY KEY (webshopID)
+    url VARCHAR(50) NOT NULL,
+    PRIMARY KEY (url)
 );
 
 CREATE TABLE product (
 	name VARCHAR(50),
     price INT(11),
     description VARCHAR(300),
-    categoryID INT(11),
+    pictureUrl VARCHAR(50),
     productID INT(11) NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (productID)
 );
 
 CREATE TABLE sells (
 	productID INT(11) NOT NULL REFERENCES product(productID),
-    webshopID INT(11) NOT NULL REFERENCES webshop(webshopID),
+    webshopID VARCHAR(50) NOT NULL REFERENCES webshop(url),
     quantity INT(11),
     PRIMARY KEY (productID, webshopID)
 );
@@ -37,7 +37,7 @@ CREATE TABLE user (
     email VARCHAR(50),
     phone VARCHAR(50),
     roleID INT(11) NOT NULL REFERENCES role(roleID),
-    webshopID INT(11) REFERENCES webshop(webshopID),
+    webshopID VARCHAR(50) REFERENCES webshop(url),
     userID INT(11) NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (userID)
 );
@@ -50,7 +50,7 @@ CREATE TABLE status (
 
 CREATE TABLE buy (
 	buyerID INT(11) NOT NULL REFERENCES user(userID),
-    webshopID INT(11) NOT NULL REFERENCES webshop(webshopID),
+    webshopID VARCHAR(50) NOT NULL REFERENCES webshop(url),
     productID INT(11) NOT NULL REFERENCES product(productID),
     statusID INT(11) NOT NULL REFERENCES status(statusID),
     quantity INT(11) NOT NULL,

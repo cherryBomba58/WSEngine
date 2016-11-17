@@ -13,8 +13,8 @@
 			
 		$scope.addToCart = function(quan) {
 			var buyerID = $cookies.get('userID');
-			var webshopID = $scope.webshopID;
-			if(buyerID === undefined || $cookies.get('roleID') != 3 || $cookies.get('webshopID') != webshopID) {
+			var webshopUrl = $scope.webshopUrl;
+			if(buyerID === undefined || $cookies.get('roleID') != 3 || $cookies.get('webshopUrl') != webshopUrl) {
 				alert("You are not logged in! Please log in to use the cart!");
 				return;
 			}
@@ -36,7 +36,7 @@
 			
 			var datetime = Y + "-" + M + "-" + D + " " + h + ":" + m + ":" + s;
 			
-			var body = {buyerID: buyerID, webshopID: webshopID, productID: productID, statusID: statusID, quantity: quan, datetime: datetime};
+			var body = {buyerID: buyerID, webshopID: webshopUrl, productID: productID, statusID: statusID, quantity: quan, datetime: datetime};
 			console.log(body);
 			
 			$http.post('/api/orders', body)

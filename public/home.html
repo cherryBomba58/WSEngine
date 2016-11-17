@@ -3,7 +3,7 @@
 		<h1>Webshop Engine</h1>
 		<p>Choose one from these great webshops!</p>
 		<ul>
-			<li ng-repeat="w in webshops"><a ui-sref="webshops.home({webshopID: w.webshopID})">{{w.name}}</a></li>
+			<li ng-repeat="w in webshops"><a ui-sref="webshops.home({url: w.url})">{{w.name}}</a></li>
 		</ul>
 	</div>
 	

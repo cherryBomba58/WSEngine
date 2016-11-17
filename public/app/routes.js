@@ -8,7 +8,7 @@
 			})
 			.state({
 				name: 'webshops',
-				url: '/webshops/{webshopID}',
+				url: '/webshops/{url}',
 				templateUrl: 'webshop/index.html',
 				controller: 'WebshopCtrl'
 			})
@@ -110,16 +110,6 @@
 				name: 'admin.wsadminsnew',
 				url: '/wsadmins-new',
 				templateUrl: 'admin/pages/wsadmins-new.html'
-			})
-			.state({
-				name: 'admin.categories',
-				url: '/categories',
-				templateUrl: 'admin/pages/categories.html'
-			})
-			.state({
-				name: 'admin.categoriesnew',
-				url: '/categories-new',
-				templateUrl: 'admin/pages/categories-new.html'
 			})
 			.state({
 				name: 'admin.products',
