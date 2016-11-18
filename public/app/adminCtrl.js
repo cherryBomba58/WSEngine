@@ -95,10 +95,21 @@
 			console.log($scope.fields);
 		}
 		
-		$scope.createNewProduct = function(name, desc, price) {
-			console.log(name, desc, price);
-			var body = {name: name, price: price, description: desc};
-			$http.post('/api/products', body)
+		$scope.createNewProduct = function(name, description, price) {
+			console.log(name, description, price);
+			var fieldnames = document.getElementsByName('fieldname');
+			var fieldvalues = document.getElementsByName('fieldvalue');
+			console.log(fieldnames, fieldvalues);
+			
+			var attributes = [];
+			for (var i=0; i<fieldnames.length; i++) {
+				attributes.push({fieldname: fieldnames[i].value, 
+								 fieldvalue: fieldvalues[i].value});
+			}
+			
+			var body = {name: name, price: price, description: description, attributes: attributes};
+			console.log(body);
+			/*$http.post('/api/products', body)
 				.success(function(data) {
 					console.log(data);
 					alert("New product created!");
@@ -106,7 +117,7 @@
 				.error(function(data) {
 					console.log('Error: ' + data);
 					alert("Sorry, something's wrong!");
-				});
+				});*/
 		}
 		
 		$scope.placeProductToWebshop = function(webshop, product) {
