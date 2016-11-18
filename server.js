@@ -109,7 +109,7 @@ app.post('/api/products', upload.single('img'), function(req, res) {
 		req.body.pictureUrl = "pictures/" + req.file.filename;
 	}
 	console.log(req.body);
-	connection.query('INSERT INTO product SET ?', req.body, function(err, result) {
+	/*connection.query('INSERT INTO product SET ?', req.body, function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
 		/*var collection = database.collection('products');
@@ -119,8 +119,8 @@ app.post('/api/products', upload.single('img'), function(req, res) {
 			assert.equal(1, result.ops.length);
 			console.log("Inserted 1 document into the products collection");
 			callback(result);
-		});*/
-	});
+		});
+	});*/
 });
 
 app.get('/api/sells', function(req, res) {

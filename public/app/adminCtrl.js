@@ -5,7 +5,6 @@
 		$scope.wsadmins = [];
 		$scope.orders = [];
 		$scope.fields = [];
-		$scope.num = 0;
 		
 		$scope.getWebshops = function() {
 			$http.get('/api/webshops')
@@ -92,10 +91,7 @@
 		}
 		
 		$scope.addNewField = function() {
-			$scope.num += 1;
-			$scope.fields.push({fielddis: "fielddis" + $scope.num, 
-								fieldname: "fieldname" + $scope.num, 
-								fieldvalue: "fieldvalue" + $scope.num});
+			$scope.fields.push('');
 			console.log($scope.fields);
 		}
 		
