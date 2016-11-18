@@ -4,6 +4,8 @@
 		$scope.sells = [];
 		$scope.wsadmins = [];
 		$scope.orders = [];
+		$scope.fields = [];
+		$scope.num = 0;
 		
 		$scope.getWebshops = function() {
 			$http.get('/api/webshops')
@@ -87,6 +89,14 @@
 					console.log('Error: ' + data);
 					alert("Sorry, something is wrong!");
 				});
+		}
+		
+		$scope.addNewField = function() {
+			$scope.num += 1;
+			$scope.fields.push({fielddis: "fielddis" + $scope.num, 
+								fieldname: "fieldname" + $scope.num, 
+								fieldvalue: "fieldvalue" + $scope.num});
+			console.log($scope.fields);
 		}
 		
 		$scope.createNewProduct = function(name, desc, price) {

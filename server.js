@@ -7,7 +7,7 @@ var assert = require('assert');
 var bodyParser = require('body-parser');
 var md5 = require('md5');
 var multer = require('multer');
-var upload = multer({dest: 'pictures/'});
+var upload = multer({dest: 'public/pictures/'});
 
 // Connect to MongoDB
 /*var url = 'mongodb://localhost:27017/project';
@@ -105,11 +105,13 @@ app.get('/api/products/:productID', function(req, res) {
 // HERE COMES MULTER
 app.post('/api/products', upload.single('img'), function(req, res) {
 	console.log(req.file);
+	if(req.file !== undefined){
+		req.body.pictureUrl = "pictures/" + req.file.filename;
+	}
 	console.log(req.body);
-	/*connection.query('INSERT INTO product SET ?', req.body, function(err, result) {
+	connection.query('INSERT INTO product SET ?', req.body, function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
-		res.json(result);
 		/*var collection = database.collection('products');
 		collection.insert({_id:most_beszurt_id, attr1:req.body.attr1, attr2:req.body.attr2}, function(err, result) {
 			assert.equal(err, null);
@@ -117,8 +119,8 @@ app.post('/api/products', upload.single('img'), function(req, res) {
 			assert.equal(1, result.ops.length);
 			console.log("Inserted 1 document into the products collection");
 			callback(result);
-		});
-	});*/
+		});*/
+	});
 });
 
 app.get('/api/sells', function(req, res) {

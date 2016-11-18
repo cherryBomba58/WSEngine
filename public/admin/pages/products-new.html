@@ -23,7 +23,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" rows="3" name="desc" ng-model="desc" placeholder="Enter a description"></textarea>
+                                            <textarea class="form-control" rows="3" name="description" ng-model="description" placeholder="Enter a description"></textarea>
                                         </div>
 										<div class="form-group">
                                             <label>Price</label>
@@ -33,7 +33,22 @@
                                             <label>Image</label>
                                             <input type="file" name="img" ng-model="img" accept="image/*">
                                         </div>
-                                        <button type="submit" class="btn btn-default">Create</button><!--ng-click="createNewProduct(name, desc, price)"-->
+                                        <div ng-repeat="f in fields">
+                                        	<div class="form-group">
+	                                            <label>Field display name</label>
+	                                            <input type="text" class="form-control" name="{{f.fielddis}}" ng-model="{{f.fielddis}}" placeholder="Enter a field name that you want to display on your site">
+	                                        </div>
+											<div class="form-group">
+	                                            <label>Field name</label>
+	                                            <input type="text" class="form-control" name="{{f.fieldname}}" ng-model="{{f.fieldname}}" placeholder="Enter a field name that must be stored in JSON">
+	                                        </div>
+	                                        <div class="form-group">
+	                                            <label>Field value</label>
+	                                            <input type="text" class="form-control" name="{{f.fieldvalue}}" ng-model="{{f.fieldvalue}}" placeholder="Enter a field value that must be the value of the given field name">
+	                                        </div>
+                                        </div>
+                                        <button type="button" class="btn btn-link" ng-click="addNewField()">Add new field</button><br />
+                                        <button type="submit" class="btn btn-default">Create</button><!--ng-click="createNewProduct(name, description, price)"-->
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
