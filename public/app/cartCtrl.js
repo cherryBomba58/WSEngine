@@ -32,7 +32,7 @@
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
-				alert("Something went wrong. The deleting didn't succeeded.");
+				alert("Something went wrong. The deleting didn't succeed.");
 			});
 	}
 	
@@ -50,7 +50,7 @@
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
-				alert("Something went wrong. The ordering didn't succeeded.");
+				alert("Something went wrong. The ordering didn't succeed.");
 			});
 	}
 
