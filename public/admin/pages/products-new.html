@@ -16,7 +16,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" enctype="multipart/form-data"><!--action="/api/products" method="post"-->
+                                    <form name="form" role="form" enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>Product name</label>
                                             <input type="text" class="form-control" name="name" ng-model="name" placeholder="Enter a name">
@@ -31,20 +31,21 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Image</label>
-                                            <input type="file" name="img" ng-model="img" accept="image/*">
+                                            <br /><div class="button btn btn-outline btn-danger" ngf-select ng-model="img" name="img" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="20MB">Select Image</div>
+                                            <br /><br /><img ngf-thumbnail="img" ngf-size="{width:370, height:370, quality:0.9}">
                                         </div>
 	                                    <div ng-repeat="f in fields track by $index">
 	                                    	<div class="form-group">
 		                                    	<label>Field display name {{$index+1}}</label>
-		                                        <input type="text" class="form-control" name="fieldname" ng-model="fieldname" placeholder="Enter a field name that you want to display on your site">
+		                                        <input type="text" class="form-control" name="fieldname" placeholder="Enter a field name that you want to display on your site">
 		                                    </div>
 		                                    <div class="form-group">
 		                                        <label>Field value {{$index+1}}</label>
-		                                        <input type="text" class="form-control" name="fieldvalue" ng-model="fieldvalue" placeholder="Enter a field value that must be the value of the given field name">
+		                                        <input type="text" class="form-control" name="fieldvalue" placeholder="Enter a field value that must be the value of the given field name">
 		                                	</div>
 	                                    </div>
-                                        <button type="button" class="btn btn-link" ng-click="addNewField()">Add new field</button><br />
-                                        <button type="submit" class="btn btn-default" ng-click="createNewProduct(name, description, price)">Create</button>
+                                        <button type="button" class="btn btn-default" ng-click="addNewField()">Add new field</button><br /><br />
+                                        <button type="submit" class="btn btn-danger" ng-click="createNewProduct(name, description, price, img)">Create</button>
                                     </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->

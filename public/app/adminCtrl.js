@@ -1,4 +1,4 @@
-﻿function AdminCtrl($scope, $http, md5, $cookies, $state) {
+﻿function AdminCtrl($scope, $http, md5, $cookies, $state, Upload) {
 		$scope.webshops = [];
 		$scope.products = [];
 		$scope.sells = [];
@@ -95,8 +95,7 @@
 			console.log($scope.fields);
 		}
 		
-		$scope.createNewProduct = function(name, description, price) {
-			console.log(name, description, price);
+		$scope.createNewProduct = function(name, description, price, img) {
 			var fieldnames = document.getElementsByName('fieldname');
 			var fieldvalues = document.getElementsByName('fieldvalue');
 			console.log(fieldnames, fieldvalues);
@@ -106,18 +105,17 @@
 				attributes.push({fieldname: fieldnames[i].value, 
 								 fieldvalue: fieldvalues[i].value});
 			}
-			
-			var body = {name: name, price: price, description: description, attributes: attributes};
-			console.log(body);
-			/*$http.post('/api/products', body)
-				.success(function(data) {
-					console.log(data);
-					alert("New product created!");
-				})
-				.error(function(data) {
-					console.log('Error: ' + data);
-					alert("Sorry, something's wrong!");
-				});*/
+						
+			Upload.upload({
+				url: '/api/products',
+				data: {img: img, name: name, price: price, description: description, attributes: attributes}
+			}).success(function(data) {
+				console.log(data);
+				alert("New product created!");
+			}).error(function(data) {
+				console.log('Error: ' + data);
+				alert("Sorry, something's wrong!");
+			});
 		}
 		
 		$scope.placeProductToWebshop = function(webshop, product) {

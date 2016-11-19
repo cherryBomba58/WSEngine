@@ -10,14 +10,14 @@ var multer = require('multer');
 var upload = multer({dest: 'public/pictures/'});
 
 // Connect to MongoDB
-/*var url = 'mongodb://localhost:27017/project';
+var url = 'mongodb://localhost:27017/project';
 var database = '';
 
 MongoClient.connect(url, function(err, db) {
 	assert.equal(null, err);
 	console.log("Connected correctly to MongoDB server.");
 	database = db;
-});*/
+});
 
 // Connect to MySQL
 var connection = mysql.createConnection({
@@ -70,57 +70,46 @@ app.post('/api/webshops', function(req, res) {
 });
 
 app.get('/api/products', function(req, res) {
-	connection.query('SELECT * FROM product', function(err, result) {
-		if(err) res.send(err);
-		console.log('Found the following products: ');
-		console.log(result);
-		res.json(result);
-		/*var collection = database.collection('products');
-		collection.find({}).toArray(function(err, docs) {
-			if(err) res.send(err);
-			console.log("Found the following products:");
-			console.log(docs);
-			res.json(docs);
-		});*/
+	var collection = database.collection('products');
+	collection.find({}).toArray(function(error, docs) {
+		if(error) res.send(error);
+		console.log("Found the following products:");
+		console.log(docs);
+		res.json(docs);
 	});
 });
 
 app.get('/api/products/:productID', function(req, res) {
-	connection.query('SELECT * FROM product WHERE productID = ?', req.params.productID,
-	function(err, result) {
-		if(err) res.send(err);
-		console.log('Found the following product infos: ');
-		console.log(result);
-		res.json(result);
-		/*var collection = database.collection('products');
-		collection.find({_id: req.params.productID}).toArray(function(err, docs) {
-			if(err) res.send(err);
-			console.log("Found the following products:");
-			console.log(docs);
-			res.json(docs);
-		});*/
+	var collection = database.collection('products');
+	collection.find({_id: req.params.productID}).toArray(function(error, docs) {
+		if(error) res.send(error);
+		console.log("Found the following product infos:");
+		console.log(docs);
+		res.json(docs);
 	});
 });
 
-// HERE COMES MULTER
 app.post('/api/products', upload.single('img'), function(req, res) {
 	console.log(req.file);
-	if(req.file !== undefined){
-		req.body.pictureUrl = "pictures/" + req.file.filename;
-	}
+	req.body.pictureUrl = (req.file !== undefined) ? "pictures/" + req.file.filename : null;
 	console.log(req.body);
-	/*connection.query('INSERT INTO product SET ?', req.body, function(err, result) {
+	connection.query('INSERT INTO product(name, price, description, pictureUrl) VALUES(?,?,?,?)', 
+	[req.body.name, req.body.price, req.body.description, req.body.pictureUrl],
+	function(err, result) {
 		if(err) res.send(err);
 		console.log(result);
-		/*var collection = database.collection('products');
-		collection.insert({_id:most_beszurt_id, attr1:req.body.attr1, attr2:req.body.attr2}, function(err, result) {
-			assert.equal(err, null);
-			assert.equal(1, result.result.n);
-			assert.equal(1, result.ops.length);
+		
+		var collection = database.collection('products');
+		collection.insert({_id:result.insertId, name: req.body.name, price: req.body.price,
+		description: req.body.description, pictureUrl: req.body.pictureUrl, attributes: req.body.attributes}, 
+		function(error, results) {
+			assert.equal(error, null);
+			assert.equal(1, results.result.n);
+			assert.equal(1, results.ops.length);
 			console.log("Inserted 1 document into the products collection");
-			callback(result);
+			res.json(results);
 		});
-	});*/
+	});
 });
 
 app.get('/api/sells', function(req, res) {
