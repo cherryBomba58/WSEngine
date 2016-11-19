@@ -81,7 +81,7 @@ app.get('/api/products', function(req, res) {
 
 app.get('/api/products/:productID', function(req, res) {
 	var collection = database.collection('products');
-	collection.find({_id: req.params.productID}).toArray(function(error, docs) {
+	collection.findOne({_id: parseInt(req.params.productID)}, function(error, docs) {
 		if(error) res.send(error);
 		console.log("Found the following product infos:");
 		console.log(docs);

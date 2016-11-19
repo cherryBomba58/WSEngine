@@ -16,6 +16,8 @@
                         <div class="panel-body">
                             <p>Price: {{p.price}}</p>
                             <p>Description: {{p.description}}</p>
+                            <p ng-repeat="a in p.attributes">{{a.fieldname}}: {{a.fieldvalue}}</p>
+                            <img src="{{p.pictureUrl}}" alt="{{p.name}}" style="max-width:100%"/>
                         </div>
                         <div class="panel-footer">
                             Modify

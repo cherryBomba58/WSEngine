@@ -4,7 +4,7 @@
 		
 		$http.get('/api/products/' + $scope.productID)
 			.success(function(data) {
-				$scope.product = data[0];
+				$scope.product = data;
 				console.log(data);
 			})
 			.error(function(data) {

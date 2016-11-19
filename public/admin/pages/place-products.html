@@ -27,7 +27,7 @@
                                         <div class="form-group">
                                             <label>Product</label>
                                             <select class="form-control" ng-model="product">
-                                            	<option value="{{p.productID}}" ng-repeat="p in products">{{p.name}}</option>
+                                            	<option value="{{p._id}}" ng-repeat="p in products">{{p.name}}</option>
                                             </select>
                                             <p class="help-block">Only global admin.</p>
                                         </div>
