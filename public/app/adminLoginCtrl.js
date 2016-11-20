@@ -1,4 +1,4 @@
-﻿function LoginAdminCtrl($scope, $http, md5, $cookies, $state) {
+﻿function AdminLoginCtrl($scope, $http, md5, $cookies, $state) {
 
 	$scope.loginAdmin = function(username, pass) {
 			console.log(username, md5.createHash(pass));

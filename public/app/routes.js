@@ -4,7 +4,7 @@
 				name: 'root',
 				url: '',
 				templateUrl: 'home.html',
-				controller: 'WebshopEngineCtrl'
+				controller: 'WSEngineCtrl'
 			})
 			.state({
 				name: 'webshops',
@@ -15,12 +15,20 @@
 			.state({
 				name: 'webshops.home',
 				url: '/home',
-				templateUrl: 'webshop/pages/home.html'
+				templateUrl: 'webshop/pages/home.html',
+				controller: 'WebshopHomeCtrl'
+			})
+			.state({
+				name: 'webshops.item',
+				url: '/item/{productID}',
+				templateUrl: 'webshop/pages/portfolio-item.html',
+				controller: 'WebshopItemCtrl'
 			})
 			.state({
 				name: 'webshops.about',
 				url: '/about',
-				templateUrl: 'webshop/pages/about.html'
+				templateUrl: 'webshop/pages/about.html',
+				controller: 'WebshopAboutCtrl'
 			})
 			.state({
 				name: 'webshops.contact',
@@ -31,29 +39,25 @@
 				name: 'webshops.myorders',
 				url: '/myorders',
 				templateUrl: 'webshop/pages/myorders.html',
-				controller: 'OrderCtrl'
+				controller: 'WebshopOrderCtrl'
 			})
 			.state({
 				name: 'webshops.mycart',
 				url: '/mycart',
 				templateUrl: 'webshop/pages/mycart.html',
-				controller: 'CartCtrl'
+				controller: 'WebshopCartCtrl'
 			})
 			.state({
 				name: 'webshops.login',
 				url: '/login',
-				templateUrl: 'webshop/pages/login.html'
-			})
-			.state({
-				name: 'webshops.item',
-				url: '/item/{productID}',
-				templateUrl: 'webshop/pages/portfolio-item.html',
-				controller: 'ItemCtrl'
+				templateUrl: 'webshop/pages/login.html',
+				controller: 'WebshopLoginCtrl'
 			})
 			.state({
 				name: 'webshops.regist',
 				url: '/regist',
-				templateUrl: 'webshop/pages/regist.html'
+				templateUrl: 'webshop/pages/regist.html',
+				controller: 'WebshopRegistCtrl'
 			})
 			.state({
 				name: 'webshops.mydata',
@@ -135,7 +139,7 @@
 				name: 'login',
 				url: '/login',
 				templateUrl: 'admin/pages/login.html',
-				controller: 'LoginAdminCtrl'
+				controller: 'AdminLoginCtrl'
 			})
 			.state({
 				name: 'notfound',

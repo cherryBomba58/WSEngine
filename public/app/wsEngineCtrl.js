@@ -1,4 +1,4 @@
-﻿function WebshopEngineCtrl($scope, $http, $cookies, $state) {
+﻿function WSEngineCtrl($scope, $http, $cookies, $state) {
 		$scope.webshops = [];
 		
 		$http.get('/api/webshops')

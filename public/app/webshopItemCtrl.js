@@ -1,4 +1,4 @@
-﻿function ItemCtrl($scope, $stateParams, $http, $cookies) {
+﻿function WebshopItemCtrl($scope, $stateParams, $http, $cookies) {
 		$scope.productID = $stateParams.productID;
 		$scope.product = {};
 		

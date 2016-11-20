@@ -1,4 +1,4 @@
-﻿function CartCtrl($scope, $http, $cookies) {
+﻿function WebshopCartCtrl($scope, $http, $cookies) {
 	$scope.cart = [];
 	$scope.totalPrice = 0;
 

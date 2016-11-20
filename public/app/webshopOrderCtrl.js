@@ -1,4 +1,4 @@
-﻿function OrderCtrl($scope, $http, $cookies) {
+﻿function WebshopOrderCtrl($scope, $http, $cookies) {
 	$scope.orders = [];
 
 	$http.get('/api/orders/' + $cookies.get('userID'))
