@@ -1,4 +1,4 @@
-CREATE DEFINER=`root`@`localhost` PROCEDURE `decrease_quantity`(IN userID INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `order_cart`(IN userID INT)
 BEGIN
   DECLARE done INTEGER DEFAULT FALSE;
   DECLARE product, bought_quantity, all_quantity INT(11);
@@ -21,6 +21,7 @@ BEGIN
       SIGNAL bought_quan_too_big;
 	ELSE
 	  UPDATE sells SET quantity = all_quantity - bought_quantity WHERE productID = product AND webshopID = webshop;
+      UPDATE buy SET statusID = 2 WHERE statusID = 1 AND buyerID = userID;
     END IF;
   END LOOP;
 

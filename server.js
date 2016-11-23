@@ -251,15 +251,10 @@ app.delete('/api/orders/:transID', function(req, res) {
 });
 
 app.put('/api/orders/:userid/', function(req, res) {
-	connection.query('CALL decrease_quantity(?)', req.params.userid, function(err, result) {
+	connection.query('CALL order_cart(?)', req.params.userid, function(err, result) {
 		if(err) res.send(err);
-		console.log(result);		
-		connection.query('UPDATE buy SET statusID = 2 WHERE statusID = 1 AND buyerID = ?',
-		req.params.userid, function(err, result) {
-			if(err) res.send(err);
-			console.log(result);
-			res.json(result);
-		});
+		console.log(result);
+		res.json(result);
 	});
 });
 

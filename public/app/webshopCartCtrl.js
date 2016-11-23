@@ -37,16 +37,15 @@
 	}
 	
 	$scope.orderCartContent = function() {
+		if($scope.cart.length == 0) {
+			alert("You have no items in cart!");
+			return;
+		}
 		$http.put('/api/orders/' + $cookies.get('userID'))
 			.success(function(data) {
 				console.log(data);
 				$scope.getCart();
-				if(data.affectedRows == 0) {
-					alert("You have no items in cart!");
-				}
-				else {
-					alert("Products ordered successfully!");
-				}
+				alert("Products ordered successfully!");
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
