@@ -1,6 +1,7 @@
 ﻿function WebshopCtrl($scope, $stateParams, $http, md5, $cookies, $state) {
 	$scope.webshopUrl = $stateParams.url;
 	$scope.webshop = {};
+	$scope.userinfo = {};
 		
 	// hide or show navigation menupoints: is a buyer logged in or not?
 	$scope.refreshMenu = function() {
@@ -23,6 +24,17 @@
 		.error(function(data) {
 			console.log('Error: ' + data);
 		});
+		
+	$scope.getUserInfo = function() {
+		$http.get('/api/users/' + $cookies.get('username'))
+			.success(function(data) {
+				$scope.userinfo = data[0];
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log('Error: ' + data);
+			});
+	}
 		
 	// logout must be available from everywhere
 	$scope.logoutBuyer = function() {

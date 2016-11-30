@@ -5,6 +5,16 @@
 		$scope.wsadmins = [];
 		$scope.orders = [];
 		$scope.fields = [];
+		$scope.userinfo = {};
+		
+		$scope.displayMenus = function() {
+			if($cookies.get('roleID') == 1) {
+				$scope.onAdmin = {display: 'block'};
+			}
+			else {
+				$scope.onAdmin = {display: 'none'};
+			}
+		}
 		
 		$scope.getWebshops = function() {
 			$http.get('/api/webshops')
@@ -54,6 +64,17 @@
 			$http.get('/api/orders')
 				.success(function(data) {
 					$scope.orders = data;
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log('Error: ' + data);
+				});
+		}
+		
+		$scope.getUserInfo = function() {
+			$http.get('/api/users/' + $cookies.get('username'))
+				.success(function(data) {
+					$scope.userinfo = data[0];
 					console.log(data);
 				})
 				.error(function(data) {

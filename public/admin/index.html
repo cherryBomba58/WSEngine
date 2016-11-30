@@ -1,4 +1,4 @@
-	
+<div ng-init="displayMenus()">
 	<div id="wrapper">
 
         <!-- Navigation -->
@@ -46,7 +46,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li ng-style="onAdmin">
                             <a><i class="fa fa-wrench fa-fw"></i> Webshops</a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -61,7 +61,7 @@
                              </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li>
+                        <li ng-style="onAdmin">
                             <a><i class="fa fa-users fa-fw"></i> Admins</a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -73,7 +73,7 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-  						<li>
+  						<li ng-style="onAdmin">
                             <a><i class="fa fa-puzzle-piece fa-fw"></i> Products</a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -114,3 +114,4 @@
 		
 	</div>
     <!-- /#wrapper -->
+</div>

@@ -22,14 +22,12 @@
                                             <select class="form-control" ng-model="webshop">
                                             	<option value="{{w.url}}" ng-repeat="w in webshops">{{w.name}}</option>
                                             </select>
-                                            <p class="help-block">Only global admin.</p>
                                         </div>
                                         <div class="form-group">
                                             <label>Product</label>
                                             <select class="form-control" ng-model="product">
                                             	<option value="{{p._id}}" ng-repeat="p in products">{{p.name}}</option>
                                             </select>
-                                            <p class="help-block">Only global admin.</p>
                                         </div>
                                         <button type="submit" class="btn btn-primary" ng-click="placeProductToWebshop(webshop, product)">Place</button>
                                     </form>
