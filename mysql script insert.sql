@@ -5,4 +5,4 @@ INSERT INTO user(fullname, username, password, email, phone, roleID, webshopID)
 VALUES('Great Administrator', 'admin', '88611d81ad92520ec74e1f6cf95ccdd9', 'admin@wsengine.hu', '06 1 111 1111', 1, null);
 
 INSERT INTO status(name, statusID)
-VALUES('in cart', 1), ('ordered', 2), ('under processing', 3), ('processed', 4), ('transporting', 5), ('payed', 6);
+VALUES('in cart', 1), ('ordered', 2);

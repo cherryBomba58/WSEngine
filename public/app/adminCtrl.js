@@ -17,14 +17,26 @@
 		}
 		
 		$scope.getWebshops = function() {
-			$http.get('/api/webshops')
-				.success(function(data) {
-					$scope.webshops = data;
-					console.log(data);
-				})
-				.error(function(data) {
-					console.log('Error: ' + data);
-				});
+			if($cookies.get('roleID') == 1) {
+				$http.get('/api/webshops')
+					.success(function(data) {
+						$scope.webshops = data;
+						console.log(data);
+					})
+					.error(function(data) {
+						console.log('Error: ' + data);
+					});
+			}
+			else {
+				$http.get('/api/webshops/' + $cookies.get('webshopUrl'))
+					.success(function(data) {
+						$scope.webshops = data;
+						console.log(data);
+					})
+					.error(function(data) {
+						console.log('Error: ' + data);
+					});
+			}
 		}
 		
 		$scope.getProducts = function() {

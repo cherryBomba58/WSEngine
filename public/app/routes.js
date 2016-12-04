@@ -131,11 +131,6 @@
 				templateUrl: 'admin/pages/mydata.html'
 			})
 			.state({
-				name: 'admin.mydatamodify',
-				url: '/mydata-modify',
-				templateUrl: 'admin/pages/mydata-modify.html'
-			})
-			.state({
 				name: 'login',
 				url: '/login',
 				templateUrl: 'admin/pages/login.html',
