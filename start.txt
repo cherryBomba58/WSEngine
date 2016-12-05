@@ -1,3 +1,0 @@
-"C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath "E:\BME-7.felev\SZAKDOGA\Project\data"
-ezzel indítjuk a MongoDB adatbázis szervert
-node server.js ezen a mappán belül, ahol a projekt van, másik cmd ablakban
