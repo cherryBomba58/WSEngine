@@ -16,23 +16,39 @@ Start Bootstrap: SB Admin 2 template, https://startbootstrap.com/template-overvi
 
 ## Alkalmazás indítása
 ### Telepítések
-Telepítse fel a MySQL Servert és MySQL Workbench-et a MySQL weboldaláról.
+Telepítsük fel a MySQL Servert és MySQL Workbench-et a MySQL weboldaláról: http://dev.mysql.com/downloads/installer/
 
-Telepítse fel a MongoDB Servert a MongoDB weboldaláról.
+A MySQL telepítésekor adjuk meg a root felhasználó jelszavát. A MySQL Workbench-ben használjuk a localhostot a root accounttal.
+Hozzunk létre benne egy új adatbázist. Futtassuk le benne a következõ szkripteket ebben a sorrendben: 
+mysql_script_create.sql, mysql_script_insert.sql.
+Készítsünk ugyanitt egy tárolt eljárást, amelynek itt van a tartalma: mysql_stored_proc.sql
+A server.js fájlban módosítsuk az alábbi részt a jelszóval és az adatbázis nevével:
 
-Telepítse fel a Node.js-t és az npm-et a Node.js oldaláról.
+```javascript
+// Connect to MySQL
+var connection = mysql.createConnection({
+	host: 'localhost',
+	user: 'root',
+	password: 'password',
+	database: 'wsengine'
+});
+```
+
+Telepítsük fel a MongoDB Servert a MongoDB weboldaláról: https://www.mongodb.com/download-center
+
+Telepítsük fel a Node.js-t és az npm-et a Node.js oldaláról: https://nodejs.org/en/
 
 ### Lépések
-Töltse le ezt a projektet egy tetszõleges könyvtárba. Miután a Telepítések pontban felsorolt szoftvereket feltelepítette, 
-a projekt könyvtárában nyisson meg egy Command Prompt/parancssor ablakot, és ide írja a következõt:
+Töltsük le ezt a projektet egy tetszõleges könyvtárba. Miután a Telepítések pontban felsorolt teendõket megcsináltuk, 
+a projekt könyvtárában nyissunk meg egy Command Prompt/parancssor ablakot, és ide írjuk a következõt:
 
 ```
 "C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath "<<projekt elérési útja>>\data"
 ```
 
 Természetesen a valódi elérési utat kell megadni a mongod.exe fájlhoz is, és a <<projekt elérési útja>> 
-helyett adja meg a projekt gyökér könyvtárához vezetõ elérési útvonalat, meghajtó betûjelével együtt. Data helyett megadhat egy más nevû könyvtárat is. 
-Itt hozza majd létre a MongoDB az adatbázist.
+helyett adjuk meg a projekt gyökér könyvtárához vezetõ elérési útvonalat, a meghajtó betûjelével együtt. 
+Data helyett megadhatunk egy más nevû könyvtárat is. Itt hozza majd létre a MongoDB az adatbázist.
 
 Ezután meg kell jelennie a következõ üzenetnek a szövegek végén:
 
@@ -42,7 +58,7 @@ waiting for connections on port 27017
 
 Ekkor elindult a MongoDB szervere.
 
-Ha ez megvan, akkor nyisson egy másik parancssori ablakot ugyanebben a könyvtárban, és írja be a következõt:
+Ha ez megvan, akkor nyissunk egy másik parancssori ablakot ugyanebben a könyvtárban, és írjuk be a következõt:
 
 ```
 npm install
@@ -50,12 +66,12 @@ npm install
 
 Ez feltelepíti a package.json-ban felsorolt csomagokat.
 
-Lépjen be a public könyvtárba, és ott is ismételje meg az npm install parancsot, mivelhogy ott is van egy package.json. 
+Lépjünk be a public könyvtárba, és ott is ismételjük meg az npm install parancsot, mivelhogy ott is van egy package.json. 
 Ha ez a két telepítés sikerült, akkor nem kell õket az további programindításokkor megismételni.
 
-Gyõzödjön meg arról, hogy fut a MySQL service az operációs rendszerben.
+Gyõzödjünk meg arról, hogy fut a MySQL service az operációs rendszerben.
 
-Ezután lépjen vissza a gyökérkönyvtárba, és indítsa el az alkalmazást: 
+Ezután lépjünk vissza a gyökérkönyvtárba, és indítsuk el az alkalmazást: 
 
 ```
 node server.js
