@@ -84,3 +84,13 @@ App listening on port 3000
 Connected correctly to MongoDB server.
 Connected correctly to MySQL server.
 ```
+
+Chrome és Firefox esetében a következõt kell beírni a cím mezõbe:
+```
+localhost:3000
+```
+
+Internet Explorer és Edge esetében pedig a következõt:
+```
+http://localhost:3000/
+```

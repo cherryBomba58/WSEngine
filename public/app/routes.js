@@ -135,11 +135,6 @@
 				url: '/login',
 				templateUrl: 'admin/pages/login.html',
 				controller: 'AdminLoginCtrl'
-			})
-			.state({
-				name: 'notfound',
-				url: '/notfound',
-				templateUrl: '404.html'
 			});
 	}
 	
