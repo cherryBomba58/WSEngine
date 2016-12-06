@@ -1,6 +1,6 @@
 # Webáruház motor
 Ez egy olyan projekt, amely azt a célt szolgálja, hogy olyan webáruház motort hozzon létre, 
-amely képes egyszerre több webáruházat is létrehozni és kiszolgálni.
+amely képes több webáruházat is létrehozni és kiszolgálni.
 
 ## Felhasznált technológiák
 Kliens oldal: HTML, CSS, AngularJS
