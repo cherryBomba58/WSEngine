@@ -1,7 +1,9 @@
 ﻿function AdminLoginCtrl($scope, $http, md5, $cookies, $state) {
 
+	// Admin site login
 	$scope.loginAdmin = function(username, pass) {
 			console.log(username, md5.createHash(pass));
+			// if the given user doesn't exist, or isn't admin, or the password is wrong, then alert comes up
 			$http.get('/api/users/' + username)
 				.success(function(data) {
 					console.log(data);
@@ -13,6 +15,7 @@
 						alert("Wrong password!");
 						return;
 					}
+					// putting data about user to cookies, then redirect to admin home site
 					$cookies.put('userID', data[0].userID);
 					$cookies.put('username', data[0].username);
 					$cookies.put('roleID', data[0].roleID);

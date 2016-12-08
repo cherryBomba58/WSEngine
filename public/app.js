@@ -1,4 +1,5 @@
-﻿angular.module("WebshopEngineApp", ["ui.router", "angular-md5", "ngCookies", "ngFileUpload"])
+﻿// Main AngularJS controller: registrates routes in config, and then the controllers, from route parent to children
+angular.module("WebshopEngineApp", ["ui.router", "angular-md5", "ngCookies", "ngFileUpload"])
 	.config(['$stateProvider', Routes])
 	.controller("WSEngineCtrl", ['$scope', '$http', '$cookies', '$state', WSEngineCtrl])
 	.controller("WebshopCtrl", ['$scope', '$stateParams', '$http', 'md5', '$cookies', '$state', WebshopCtrl])

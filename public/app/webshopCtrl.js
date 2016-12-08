@@ -3,7 +3,7 @@
 	$scope.webshop = {};
 	$scope.userinfo = {};
 		
-	// hide or show navigation menupoints: is a buyer logged in or not?
+	// Hide or show navigation menupoints: is a buyer logged in or not?
 	$scope.refreshMenu = function() {
 		if(($cookies.get('userID') !== undefined) && ($cookies.get('roleID') == 3) && ($cookies.get('webshopUrl') == $scope.webshopUrl)) {
 			$scope.onPublic = {display: 'none'};
@@ -15,7 +15,7 @@
 		}
 	}
 		
-	// webshop data is needed on every page of webshop, so it's here in parent controller
+	// Gets webshop data: it is needed on every page of webshop, so it's here in parent controller
 	$http.get('/api/webshops/' + $scope.webshopUrl)
 		.success(function(data) {
 			$scope.webshop = data[0];
@@ -24,7 +24,8 @@
 		.error(function(data) {
 			console.log('Error: ' + data);
 		});
-		
+	
+	// Gets info about the user who is logged in
 	$scope.getUserInfo = function() {
 		$http.get('/api/users/' + $cookies.get('username'))
 			.success(function(data) {
@@ -36,7 +37,8 @@
 			});
 	}
 		
-	// logout must be available from everywhere
+	// Logout: removes cookies and redirects to webshop home site
+	// It must be available from every webshop site
 	$scope.logoutBuyer = function() {
 		$cookies.remove('userID');
 		$cookies.remove('username');

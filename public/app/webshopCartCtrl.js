@@ -2,6 +2,7 @@
 	$scope.cart = [];
 	$scope.totalPrice = 0;
 
+	// Gets the content of the cart of logged in user
 	$scope.getCart = function() {
 		$http.get('/api/cart/' + $cookies.get('userID'))
 			.success(function(data) {
@@ -14,6 +15,7 @@
 			});
 	}
 	
+	// Counts the total price of the titles in cart
 	$scope.getTotalPrice = function() {
 		var value = 0;
 		$scope.cart.forEach(function(c) {
@@ -23,6 +25,7 @@
 		$scope.totalPrice = value;
 	}
 
+	// Deletes title from cart
 	$scope.deleteFromCart = function(transID) {
 		$http.delete('/api/orders/' + transID)
 			.success(function(data) {
@@ -36,6 +39,7 @@
 			});
 	}
 	
+	// Orders the content of the cart: order status update
 	$scope.orderCartContent = function() {
 		if($scope.cart.length == 0) {
 			alert("You have no items in cart!");
