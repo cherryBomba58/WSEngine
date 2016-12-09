@@ -8,6 +8,8 @@ Kliens oldal: HTML, CSS, AngularJS
 Szerver oldal: MongoDB, MySQL, Node.js
 
 ## Hivatkozások
+A projekt GitHub oldala: https://github.com/cherryBomba58/WSEngine
+
 Start Bootstrap: Shop Homepage template, https://startbootstrap.com/template-overviews/shop-homepage/
 
 Start Bootstrap: Modern Business template, https://startbootstrap.com/template-overviews/modern-business/

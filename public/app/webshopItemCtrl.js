@@ -6,7 +6,6 @@
 		$http.get('/api/products/' + $scope.productID)
 			.success(function(data) {
 				$scope.product = data;
-				console.log(data);
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);
@@ -42,16 +41,14 @@
 			
 			// Collected data is written to body
 			var body = {buyerID: buyerID, webshopID: webshopUrl, productID: productID, statusID: statusID, quantity: quan, datetime: datetime};
-			console.log(body);
 			
 			// Creating new order in cart
 			$http.post('/api/orders', body)
 				.success(function(data) {
-					console.log(data);
 					alert("You put the product into cart successfully!");
 				})
 				.error(function(data) {
-					console.log("Error: " + data);
+					console.log('Error: ' + data);
 					alert("Sorry, something went wrong.");
 				});			
 		}

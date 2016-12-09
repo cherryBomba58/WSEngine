@@ -7,7 +7,6 @@
 		$http.get('/api/cart/' + $cookies.get('userID'))
 			.success(function(data) {
 				$scope.cart = data;
-				console.log(data);
 				$scope.getTotalPrice();
 			})
 			.error(function(data) {
@@ -21,7 +20,6 @@
 		$scope.cart.forEach(function(c) {
 			value += c.quantity*c.price;
 		})
-		console.log(value);
 		$scope.totalPrice = value;
 	}
 
@@ -29,7 +27,6 @@
 	$scope.deleteFromCart = function(transID) {
 		$http.delete('/api/orders/' + transID)
 			.success(function(data) {
-				console.log(data);
 				$scope.getCart();
 				alert("Product deleted from cart successfully!");
 			})
@@ -47,7 +44,6 @@
 		}
 		$http.put('/api/orders/' + $cookies.get('userID'))
 			.success(function(data) {
-				console.log(data);
 				$scope.getCart();
 				alert("Products ordered successfully!");
 			})

@@ -19,7 +19,6 @@
 	$http.get('/api/webshops/' + $scope.webshopUrl)
 		.success(function(data) {
 			$scope.webshop = data[0];
-			console.log(data);
 		})
 		.error(function(data) {
 			console.log('Error: ' + data);
@@ -30,7 +29,6 @@
 		$http.get('/api/users/' + $cookies.get('username'))
 			.success(function(data) {
 				$scope.userinfo = data[0];
-				console.log(data);
 			})
 			.error(function(data) {
 				console.log('Error: ' + data);

@@ -96,9 +96,7 @@ app.get('/api/products/:productID', function(req, res) {
 
 // Creating a new product on admin site, with picture upload + inserting special attributes
 app.post('/api/products', upload.single('img'), function(req, res) {
-	console.log(req.file);
 	req.body.pictureUrl = (req.file !== undefined) ? "pictures/" + req.file.filename : null;
-	console.log(req.body);
 	
 	// insert into MySQL table
 	connection.query('INSERT INTO product(name, price, description, pictureUrl) VALUES(?,?,?,?)', 

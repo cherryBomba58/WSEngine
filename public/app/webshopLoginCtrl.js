@@ -2,12 +2,10 @@
 
 	// Login the buyer user on webshop
 	$scope.loginBuyer = function(username, pass) {
-		console.log(username, md5.createHash(pass));
 		// if the given user doesn't exist, or isn't a buyer, or isn't registrated to the actual webshop,
 		// or the password is wrong, then alert comes up
 		$http.get('/api/users/' + username)
 			.success(function(data) {
-				console.log(data);
 				if(data.length == 0 || data[0].roleID != 3 || data[0].webshopID != $scope.webshopUrl) {
 					alert("Wrong username!");
 					return;
