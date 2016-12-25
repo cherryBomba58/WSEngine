@@ -16,6 +16,10 @@ Start Bootstrap: Modern Business template, https://startbootstrap.com/template-o
 
 Start Bootstrap: SB Admin 2 template, https://startbootstrap.com/template-overviews/sb-admin-2/
 
+## Változások
+- 62: a szakdolgozattal együtt beadott, eredeti verzió
+- 63: változás történt a package.json fájlokban és a README.md-ben. Ugyanis, ha a package.json-ban található verziószámok elõtt van egy ^ karakter, akkor egy újabb npm install esetén az npm a megadott verziószámnál újabbat is telepíthet az adott csomagból, amely kompatibilitási hibákat okozhat. Ezért eltávolítottam a kalap karaktereket. Továbbá, a README.md szövegén is pontosítottam.
+
 ## Alkalmazás indítása
 ### Telepítések
 Telepítsük fel a MySQL Servert és MySQL Workbench-et a MySQL weboldaláról: http://dev.mysql.com/downloads/installer/
@@ -42,15 +46,21 @@ Telepítsük fel a Node.js-t és az npm-et a Node.js oldaláról: https://nodejs.org/
 
 ### Lépések
 Töltsük le ezt a projektet egy tetszõleges könyvtárba. Miután a Telepítések pontban felsorolt teendõket megcsináltuk, 
-a projekt könyvtárában nyissunk meg egy Command Prompt/parancssor ablakot, és ide írjuk a következõt:
+a projekt könyvtárában nyissunk meg egy Command Prompt/parancssor ablakot, majd hozzunk létre egy data mappát:
+
+```
+mkdir data
+```
+
+Ezután írjuk be a következõ parancsot:
 
 ```
 "C:\Program Files\MongoDB\Server\3.2\bin\mongod.exe" --dbpath "<<projekt elérési útja>>\data"
 ```
 
-Természetesen a valódi elérési utat kell megadni a mongod.exe fájlhoz is, és a <<projekt elérési útja>> 
+Természetesen a valódi elérési utat kell megadni a mongod.exe fájlhoz is, és a "projekt elérési útja" 
 helyett adjuk meg a projekt gyökér könyvtárához vezetõ elérési útvonalat, a meghajtó betûjelével együtt. 
-Data helyett megadhatunk egy más nevû könyvtárat is. Itt hozza majd létre a MongoDB az adatbázist.
+Data helyett megadhatunk egy más nevû, létezõ könyvtárat is. Itt hozza majd létre a MongoDB az adatbázist.
 
 Ezután meg kell jelennie a következõ üzenetnek a szövegek végén:
 
